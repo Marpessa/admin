@@ -1,14 +1,138 @@
 easy_admin:
+    site_name: 'Cloud <em style="font-size: 80%; color: yellow">Web Sport.</em>'
+    design:
+        brand_color: '#3498db'
+        color_scheme: 'dark'
+        form_theme: 'horizontal'
+    formats:
+        date:     'd/m/Y'
+        time:     'H:i'
+        datetime: 'd/m/Y H:i:s'
+    list:
+        actions:
+            - { name: 'new', label: 'Ajouter', icon: 'plus-square' }
+            - { name: 'show', label: 'Visualiser', icon: 'eye', css_class: 'btn' }
+            - { name: 'edit', label: 'Modifier', icon: 'pencil-square-o', css_class: 'btn' }
     entities:
-       - Core\DomainBundle\Entity\Domain
-       - Core\PartBundle\Entity\Part
-       - Core\PackageBundle\Entity\Package
-       - Core\PackageBundle\Entity\PackageGroup
-       - Core\PackageBundle\Entity\PackageOption
-       - Core\PackageBundle\Entity\PartPackage
-       - Core\UserBundle\Entity\User
-
-       - Base\ArticleBundle\Entity\Article
-       - Base\CategoryBundle\Entity\Category
-       - Base\TemplateBundle\Entity\Template
-       - Base\WidgetBundle\Entity\Widget
+        Domain:
+            label: 'Domaine'
+            class: Core\DomainBundle\Entity\Domain
+            list:
+                title: "Liste des domaines"
+                fields: 
+                    - 'id'
+                    - { property: 'url', type: 'text', label: 'Url' }
+                    - { property: 'updatedAt', type: 'date', label: 'Date de mise à jour' }
+        Part:
+            label: 'Parties'
+            class: Core\PartBundle\Entity\Part
+            list:
+                title: "Liste des parties"
+                fields: 
+                    - 'id'
+                    - { property: 'title', type: 'text', label: 'Titre' }
+                    - { property: 'isPublished', type: 'toggle', label: 'Publié ?' }
+                    - { property: 'updatedAt', type: 'date', label: 'Date de mise à jour' }
+                    - { property: 'modificationUserId', type: 'text', label: 'Modifié par' }
+                    - { property: 'version', type: 'text', label: 'Version' }
+        Package:
+            label: 'Paquets'
+            class: Core\PackageBundle\Entity\Package
+            list:
+                title: "Liste des parties"
+                fields: 
+                    - 'id'
+                    - { property: 'title', type: 'text', label: 'Titre' }
+                    - { property: 'link', type: 'text', label: 'Chemin' }
+                    - { property: 'isPublished', type: 'toggle', label: 'Publié ?' }
+                    - { property: 'hasUniquePartPackage', type: 'toggle', label: 'Instance unique ?' }
+                    - { property: 'updatedAt', type: 'date', label: 'Date de mise à jour' }
+                    - { property: 'version', type: 'text', label: 'Version' }
+        PackageGroup:
+            label: 'Groupe de paquets'
+            class: Core\PackageBundle\Entity\PackageGroup
+            list:
+                title: "Liste des groupes de paquets"
+                fields: 
+                    - 'id'
+                    - { property: 'title', type: 'text', label: 'Titre' }
+                    - { property: 'icon', type: 'text', label: 'icône' }
+                    - { property: 'defaultPosition', type: 'text', label: 'Position par défaut' }
+                    - { property: 'version', type: 'text', label: 'Version' }
+        PackageOption:
+            label: 'Options des paquets'
+            class: Core\PackageBundle\Entity\PackageOption
+            list:
+                title: "Liste des options des paquets"
+                fields: 
+                    - 'id'
+                    - { property: 'title', type: 'text', label: 'Titre' }
+                    - { property: 'isPublished', type: 'toggle', label: 'Publié ?' }
+                    - { property: 'version', type: 'text', label: 'Version' }
+        PartPackage:
+            label: 'Paquets par partie'
+            class: Core\PackageBundle\Entity\PartPackage
+            list:
+                title: "Liste des paquets par partie"
+                fields: 
+                    - 'id'
+                    - { property: 'title', type: 'text', label: 'Titre' }
+                    - { property: 'isPublished', type: 'toggle', label: 'Publié ?' }
+                    - { property: 'position', type: 'text', label: 'Position' }
+                    - { property: 'partId', type: 'text', label: 'Partie' }
+                    - { property: 'version', type: 'text', label: 'Version' }
+        User:
+            label: 'Utilisateurs'
+            class: Core\UserBundle\Entity\User
+            list:
+                title: "Liste des utilisateurs"
+                fields: 
+                    - 'id'
+                    - { property: 'username', type: 'text', label: 'Login' }
+                    - { property: 'lastname', type: 'text', label: 'Nom' }
+                    - { property: 'firstname', type: 'text', label: 'Prénom' }
+                    - { property: 'email', type: 'text', label: 'Email' }
+                    - { property: 'enabled', type: 'toggle', label: 'Actif ?' }
+                    - { property: 'locked', type: 'toggle', label: 'Bloqué ?' }
+        Article:
+            label: 'Contenu'
+            class: Base\ArticleBundle\Entity\Article
+            list:
+                title: "Liste des contenus"
+                fields: 
+                    - 'id'
+                    - { property: 'title', type: 'text', label: 'Titre' }
+                    - { property: 'isPublished', type: 'toggle', label: 'Publié ?' }
+                    - { property: 'updatedAt', type: 'date', label: 'Date de mise à jour' }
+                    - { property: 'modificationUserId', type: 'text', label: 'Modifié par' }
+                    - { property: 'version', type: 'text', label: 'Version' }
+        Category:
+            label: 'Types de contenu'
+            class: Base\CategoryBundle\Entity\Category
+            list:
+                title: "Liste des types de contenus"
+                fields: 
+                    - 'id'
+                    - { property: 'version', type: 'text', label: 'Version' }
+        Template:
+            label: 'Templates'
+            class: Base\TemplateBundle\Entity\Template
+            list:
+                title: "Liste des templates"
+                fields: 
+                    - 'id'
+                    - { property: 'title', type: 'text', label: 'Titre' }
+                    - { property: 'updatedAt', type: 'date', label: 'Date de mise à jour' }
+                    - { property: 'modificationUserId', type: 'text', label: 'Modifié par' }
+                    - { property: 'version', type: 'text', label: 'Version' }
+        Widget:
+            label: 'Widgets'
+            class: Base\WidgetBundle\Entity\Widget
+            list:
+                title: "Liste des widgets"
+                fields: 
+                    - 'id'
+                    - { property: 'title', type: 'text', label: 'Titre' }
+                    - { property: 'updatedAt', type: 'date', label: 'Date de mise à jour' }
+                    - { property: 'modificationUserId', type: 'text', label: 'Modifié par' }
+                    - { property: 'version', type: 'text', label: 'Version' }

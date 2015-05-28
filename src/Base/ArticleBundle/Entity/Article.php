@@ -35,7 +35,7 @@ class Article {
      *      maxMessage = "Votre titre ne peut pas être plus long que {{ limit }} caractères"
      * )
      */
-    public $title;
+    private $title;
 
     /**
      * @ORM\Column(type="text", nullable=false)
@@ -47,7 +47,13 @@ class Article {
      *      maxMessage = "Votre contenu ne peut pas être plus long que {{ limit }} caractères"
      * )
      */
-    public $content;
+    private $content;
+
+    /**
+     * @ORM\Column(type="boolean")
+     * @Assert\NotBlank()
+     */
+    private $is_published;
 
     /**
      * @var User
@@ -55,7 +61,7 @@ class Article {
      * @ORM\ManyToOne(targetEntity="Core\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="creation_user_id", referencedColumnName="id", onDelete="SET NULL")
      */
-    public $creation_user_id;
+    private $creation_user_id;
 
     /**
      * @var User
@@ -63,7 +69,7 @@ class Article {
      * @ORM\ManyToOne(targetEntity="Core\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="modification_user_id", referencedColumnName="id", onDelete="SET NULL")
      */
-    public $modification_user_id;
+    private $modification_user_id;
 
     /**
      * @var datetime $created
@@ -182,6 +188,26 @@ class Article {
     public function getContent()
     {
         return $this->content;
+    }
+
+    /**
+     * Set is_published
+     *
+     * @param boolean $isPublished
+     */
+    public function setIsPublished($isPublished)
+    {
+        $this->is_published = $isPublished;
+    }
+
+    /**
+     * Get is_published
+     *
+     * @return boolean 
+     */
+    public function getIsPublished()
+    {
+        return $this->is_published;
     }
 
     /**

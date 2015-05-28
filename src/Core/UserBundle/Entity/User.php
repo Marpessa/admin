@@ -31,6 +31,7 @@ class User extends BaseUser
      * @Assert\NotBlank
      */
     protected $lastname;
+    
 
     public function __construct()
     {

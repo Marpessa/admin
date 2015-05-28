@@ -35,7 +35,7 @@ class PackageOption {
      *      maxMessage = "Votre titre ne peut pas être plus long que {{ limit }} caractères"
      * )
      */
-    public $title;
+    private $title;
 
     /**
      * @ORM\Column(type="text", nullable=false)
@@ -47,13 +47,13 @@ class PackageOption {
      *      maxMessage = "Votre description ne peut pas être plus long que {{ limit }} caractères"
      * )
      */
-    public $description;
+    private $description;
 
     /**
      * @ORM\Column(type="boolean")
      * @Assert\NotBlank()
      */
-    public $is_published;
+    private $is_published;
 
     /**
      * @var User
@@ -61,7 +61,7 @@ class PackageOption {
      * @ORM\ManyToOne(targetEntity="Core\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="creation_user_id", referencedColumnName="id", onDelete="SET NULL")
      */
-    public $creation_user_id;
+    private $creation_user_id;
 
     /**
      * @var User
@@ -69,7 +69,7 @@ class PackageOption {
      * @ORM\ManyToOne(targetEntity="Core\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="modification_user_id", referencedColumnName="id", onDelete="SET NULL")
      */
-    public $modification_user_id;
+    private $modification_user_id;
 
     /**
      * @Gedmo\Slug(fields={"title"})

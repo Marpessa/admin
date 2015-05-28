@@ -36,7 +36,7 @@ class Widget
      *      maxMessage = "Votre titre ne peut pas être plus long que {{ limit }} caractères"
      * )
      */
-    public $title;
+    private $title;
 
     /**
      * @ORM\Column(type="text", nullable=false)
@@ -56,7 +56,7 @@ class Widget
      * @ORM\ManyToOne(targetEntity="Core\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="creation_user_id", referencedColumnName="id", onDelete="SET NULL")
      */
-    public $creation_user_id;
+    private $creation_user_id;
 
     /**
      * @var User
@@ -64,7 +64,7 @@ class Widget
      * @ORM\ManyToOne(targetEntity="Core\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="modification_user_id", referencedColumnName="id", onDelete="SET NULL")
      */
-    public $modification_user_id;
+    private $modification_user_id;
 
     /**
      * @var datetime $created
@@ -94,7 +94,7 @@ class Widget
      * @ORM\ManyToOne(targetEntity="Core\PackageBundle\Entity\PartPackage")
      * @ORM\JoinColumn(name="part_package_id", referencedColumnName="id", onDelete="SET NULL")
      */
-    public $part_package_id;
+    private $part_package_id;
 
 
     /**
