@@ -1,0 +1,43 @@
+TODO :
+
+Voir comment gérer prorpement les urls des part_package dans l'administration (pour le moment ajout d'un champ has_unique_part_package mais ce n'estpas bon car ces paquets pourront être disponibles sur un site.)
+Regarder comment est fait le paquet article dans Base ArticleBundle et faire pareil pour les paquets admin en surchargeant ??? Pas sur, Réfléchir...
+
+=> Trouver : mettre use Application\Sonata\AdminBundle\Admin\Admin; dans la classe PartAdmin.php
+
+Mauvais exemple avec Part car il sera bien unique donc laisser setHasUniquePartPackage (ou bien remplacer par le nom onlyAdmin)
+
+En train de faire pour galleryAdmin, regarder la classe dans sonata/MediaBundle/ADmin/GalleryAdmin.php
+Egalement, en trin de faire TemplateAdmin, faire la list.html.twig (prendre exemple sur config.yml pour Arborescence par exemple)
+
+"Ne pas faire pour les paquets part, domain, etc... mais le faire pour user, media, etc..."
+Puis supprimer setHasUniquePartPackage dans ORM DataFixtures et modifier l'entity package afin de supprimer ce champ.
+Supprimer également la conditiion dans block_core_part_package.html
+
+Mettre en session le part afin de pouvoir le gérer partout (le mettre dans les conditions etc...)
+
+Application/Sonata/AdminBundle/Admin/Admin.php
+-> Mettre le part pour la condition sur le part également pour la sécurité
+
+Gérer les paquets admin
+Gérer la sécurité d'accès à la partie administration
+
+
+-------------------
+Gérer la partie administration pour configurer le template, les blocs et la couleur de base de l'administration en fonction du site déployé
+
+-------------------
+Prendre exemple sur Drupal Gardens pour la configuration d'un nouveau site
+
+------------------
+Gérer l'ordre des part package dans un group part package (comme catégories sous Vigicom) visuellement
+--> Voir si on doit rajouter dans l'avenir une table de liaison avec part package pour gérer un ordre spécifique par partie pour les groupes
+
+
+------------------
+Gérer quelques commandes symfony automatiquement à partir de l'interface (nouveau paquet, getter/setter, etc...)
+
+
+DONE :
+
+Ajouter les paquets Librairie et media dans la partie administration

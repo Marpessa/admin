@@ -16,7 +16,30 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+
+            // Extensions
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+
             new AppBundle\AppBundle(),
+
+            // User
+            new FOS\UserBundle\FOSUserBundle(),
+
+            // Admin
+            new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
+
+            // Core
+            new Core\UserBundle\CoreUserBundle(),
+            new Core\DomainBundle\CoreDomainBundle(),
+            new Core\PartBundle\CorePartBundle(),
+            new Core\PackageBundle\CorePackageBundle(),
+            //new Core\BlockBundle\CoreBlockBundle(),
+
+            // Base
+            new Base\TemplateBundle\BaseTemplateBundle(),
+            new Base\WidgetBundle\BaseWidgetBundle(),
+            new Base\CategoryBundle\BaseCategoryBundle(),
+            new Base\ArticleBundle\BaseArticleBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
@@ -24,6 +47,8 @@ class AppKernel extends Kernel
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
+            // DataFixtures
+            $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
         }
 
         return $bundles;

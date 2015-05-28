@@ -1,0 +1,3 @@
+_CorePartBundleDisplayPart:
+    defaults: { _controller: CorePartBundle:Default:displayPart }
+    pattern: /afficher-partie-{part_slug}.html

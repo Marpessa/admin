@@ -1,0 +1,14 @@
+easy_admin:
+    entities:
+       - Core\DomainBundle\Entity\Domain
+       - Core\PartBundle\Entity\Part
+       - Core\PackageBundle\Entity\Package
+       - Core\PackageBundle\Entity\PackageGroup
+       - Core\PackageBundle\Entity\PackageOption
+       - Core\PackageBundle\Entity\PartPackage
+       - Core\UserBundle\Entity\User
+
+       - Base\ArticleBundle\Entity\Article
+       - Base\CategoryBundle\Entity\Category
+       - Base\TemplateBundle\Entity\Template
+       - Base\WidgetBundle\Entity\Widget

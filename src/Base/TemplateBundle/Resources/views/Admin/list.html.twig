@@ -1,0 +1,32 @@
+{% extends base_template %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('bundles/basetemplate/css/main.css') }}" media="all">
+{% endblock %}
+
+{% block actions %}
+    <div class="sonata-actions btn-group">
+        {% include 'SonataAdminBundle:Core:create_button.html.twig' %}
+    </div>
+{% endblock %}
+
+{% block sonata_admin_content %}
+	<ul class="clearfix">
+	{% for i in 0..10 %}
+    	<li class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+			{% if i%2 == 0 %}
+	    		<h2>Unify - Responsive Website Template</h2>
+	    		<a class="image" href="http://wrapbootstrap.com/preview/WB0412697" title="Unify - Responsive Website Template" target="_blank"><img class="lazy lazy_product_image" width="420" height="263" alt="Unify - Responsive Website Template" title="Unify - Responsive Website Template" src="https://d85wutc1n854v.cloudfront.net/live/products/icons/WB0412697.jpg?v=1.5" style="display: inline-block; "><noscript>&lt;img src="https://d85wutc1n854v.cloudfront.net/live/products/icons/WB0412697.jpg?v=1.5" width="420" height="263" alt="Unify - Responsive Website Template" title="Unify - Responsive Website Template"&gt;</noscript></a>
+	    	{% else %}
+	    		<h2>Boomerang - Multipurpose Template </h2>
+	    		<a class="image" href="http://wrapbootstrap.com/preview/WB021609D" title="Boomerang - Multipurpose Template" target="_blank"><img class="lazy lazy_product_image" width="420" height="263" alt="Boomerang - Multipurpose Template" title="Boomerang - Multipurpose Template" src="https://d85wutc1n854v.cloudfront.net/live/products/icons/WB021609D.jpg?v=1.2" style="display: inline-block; "><noscript>&lt;img src="https://d85wutc1n854v.cloudfront.net/live/products/icons/WB021609D.jpg?v=1.2" width="420" height="263" alt="Boomerang - Multipurpose Template" title="Boomerang - Multipurpose Template"&gt;</noscript></a>
+	    	{% endif %}
+    	</li>
+	{% endfor %}
+    </ul>
+{% endblock %}
+
+{% block side_menu %}
+	{{ knp_menu_render(admin.sidemenu(action), {'currentClass' : 'active'}, 'list') }}
+{% endblock %}

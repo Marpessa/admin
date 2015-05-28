@@ -1,0 +1,16 @@
+#content ul {
+	margin-bottom: 50px;
+}
+
+#content ul li {
+	list-style: none;
+
+	background: #EEE;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+}
+
+#content ul li h2 {
+	color: #444;
+}

@@ -1,0 +1,268 @@
+{% extends sonata_block.templates.block_base %}
+
+{% block block %}
+	
+<div class="col-lg-8">
+	<div class="panel panel-default">
+	    <div class="panel-heading">
+	        <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
+	        <div class="pull-right">
+	            <div class="btn-group">
+	                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+	                    Actions
+	                    <span class="caret"></span>
+	                </button>
+	                <ul class="dropdown-menu pull-right" role="menu">
+	                    <li><a href="#">Action</a>
+	                    </li>
+	                    <li><a href="#">Another action</a>
+	                    </li>
+	                    <li><a href="#">Something else here</a>
+	                    </li>
+	                    <li class="divider"></li>
+	                    <li><a href="#">Separated link</a>
+	                    </li>
+	                </ul>
+	            </div>
+	        </div>
+	    </div>
+	    <!-- /.panel-heading -->
+	    <div class="panel-body">
+	        <div id="morris-area-chart" style="position: relative; "><svg style="overflow: hidden; position: relative; " height="357" version="1.1" width="988" xmlns="http://www.w3.org/2000/svg"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); ">Created with Raphaël 2.1.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); "></defs><text style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: sans-serif; " x="50.5" y="321" text-anchor="end" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" font-size="12px" font-family="sans-serif" font-weight="normal"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " dy="4.5">0</tspan></text><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " fill="none" stroke="#aaaaaa" d="M63,321H963" stroke-width="0.5"></path><text style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: sans-serif; " x="50.5" y="247" text-anchor="end" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" font-size="12px" font-family="sans-serif" font-weight="normal"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " dy="4.5">7,500</tspan></text><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " fill="none" stroke="#aaaaaa" d="M63,247H963" stroke-width="0.5"></path><text style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: sans-serif; " x="50.5" y="173" text-anchor="end" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" font-size="12px" font-family="sans-serif" font-weight="normal"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " dy="4.5">15,000</tspan></text><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " fill="none" stroke="#aaaaaa" d="M63,173H963" stroke-width="0.5"></path><text style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: sans-serif; " x="50.5" y="99.00000000000003" text-anchor="end" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" font-size="12px" font-family="sans-serif" font-weight="normal"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " dy="4.500000000000028">22,500</tspan></text><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " fill="none" stroke="#aaaaaa" d="M63,99.00000000000003H963" stroke-width="0.5"></path><text style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: sans-serif; " x="50.5" y="25" text-anchor="end" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" font-size="12px" font-family="sans-serif" font-weight="normal"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " dy="4.5">30,000</tspan></text><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " fill="none" stroke="#aaaaaa" d="M63,25H963" stroke-width="0.5"></path><text style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: sans-serif; " x="963" y="333.5" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" font-size="12px" font-family="sans-serif" font-weight="normal" transform="matrix(1,0,0,1,0,7.5)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " dy="4.5">2012-06</tspan></text><text style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: sans-serif; " x="862.4329401042986" y="333.5" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" font-size="12px" font-family="sans-serif" font-weight="normal" transform="matrix(1,0,0,1,0,7.5)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " dy="4.5">2012-03</tspan></text><text style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: sans-serif; " x="762.9139284086882" y="333.5" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" font-size="12px" font-family="sans-serif" font-weight="normal" transform="matrix(1,0,0,1,0,7.5)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " dy="4.5">2011-12</tspan></text><text style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: sans-serif; " x="663.3493494000304" y="333.5" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" font-size="12px" font-family="sans-serif" font-weight="normal" transform="matrix(1,0,0,1,0,7.5)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " dy="4.5">2011-09</tspan></text><text style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: sans-serif; " x="562.7367221912815" y="333.5" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" font-size="12px" font-family="sans-serif" font-weight="normal" transform="matrix(1,0,0,1,0,7.5)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " dy="4.5">2011-06</tspan></text><text style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: sans-serif; " x="462.16966229558" y="333.5" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" font-size="12px" font-family="sans-serif" font-weight="normal" transform="matrix(1,0,0,1,0,7.5)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " dy="4.5">2011-03</tspan></text><text style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: sans-serif; " x="363.7442661131082" y="333.5" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" font-size="12px" font-family="sans-serif" font-weight="normal" transform="matrix(1,0,0,1,0,7.5)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " dy="4.5">2010-12</tspan></text><text style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: sans-serif; " x="264.1796871044504" y="333.5" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" font-size="12px" font-family="sans-serif" font-weight="normal" transform="matrix(1,0,0,1,0,7.5)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " dy="4.5">2010-09</tspan></text><text style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: sans-serif; " x="163.5670598957015" y="333.5" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" font-size="12px" font-family="sans-serif" font-weight="normal" transform="matrix(1,0,0,1,0,7.5)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " dy="4.5">2010-06</tspan></text><text style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: sans-serif; " x="63" y="333.5" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" font-size="12px" font-family="sans-serif" font-weight="normal" transform="matrix(1,0,0,1,0,7.5)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " dy="4.5">2010-03</tspan></text><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1; " fill="#7cb47c" stroke="none" d="M63,268.5784C88.14176497392538,263.1517333333333,138.42529492177613,251.88902998867496,163.5670598957015,246.87173333333334C188.72021669788873,241.85216332200832,239.02653030226318,235.29937312390925,264.1796871044504,228.43093333333334C289.07083185661486,221.6340397905759,338.85312136094376,194.23850241657078,363.7442661131082,192.21040000000002C388.35061515872616,190.2055024165708,437.56331324996205,210.82388135256852,462.16966229558,212.29893333333334C487.3114272695054,213.8060813525685,537.5949572173561,203.13549405813515,562.7367221912815,204.13920000000002C587.8898789934688,205.14336072480182,638.1961925978432,238.14743036649213,663.3493494000304,220.3304C688.2404941521949,202.69896369982547,738.0227836565238,70.94610147249564,762.9139284086882,62.34533333333337C787.7936813325908,53.748501472495654,837.553187180396,138.92897089501253,862.4329401042986,151.54000000000002C887.5747050782239,164.2838375616792,937.8582350260747,160.70860000000002,963,163.7648L963,321L63,321Z" fill-opacity="1"></path><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " fill="none" stroke="#4da74d" d="M63,268.5784C88.14176497392538,263.1517333333333,138.42529492177613,251.88902998867496,163.5670598957015,246.87173333333334C188.72021669788873,241.85216332200832,239.02653030226318,235.29937312390925,264.1796871044504,228.43093333333334C289.07083185661486,221.6340397905759,338.85312136094376,194.23850241657078,363.7442661131082,192.21040000000002C388.35061515872616,190.2055024165708,437.56331324996205,210.82388135256852,462.16966229558,212.29893333333334C487.3114272695054,213.8060813525685,537.5949572173561,203.13549405813515,562.7367221912815,204.13920000000002C587.8898789934688,205.14336072480182,638.1961925978432,238.14743036649213,663.3493494000304,220.3304C688.2404941521949,202.69896369982547,738.0227836565238,70.94610147249564,762.9139284086882,62.34533333333337C787.7936813325908,53.748501472495654,837.553187180396,138.92897089501253,862.4329401042986,151.54000000000002C887.5747050782239,164.2838375616792,937.8582350260747,160.70860000000002,963,163.7648" stroke-width="3"></path><circle style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " cx="63" cy="268.5784" r="2" fill="#4da74d" stroke="#ffffff" stroke-width="1"></circle><circle style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " cx="163.5670598957015" cy="246.87173333333334" r="2" fill="#4da74d" stroke="#ffffff" stroke-width="1"></circle><circle style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " cx="264.1796871044504" cy="228.43093333333334" r="2" fill="#4da74d" stroke="#ffffff" stroke-width="1"></circle><circle style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " cx="363.7442661131082" cy="192.21040000000002" r="2" fill="#4da74d" stroke="#ffffff" stroke-width="1"></circle><circle style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " cx="462.16966229558" cy="212.29893333333334" r="2" fill="#4da74d" stroke="#ffffff" stroke-width="1"></circle><circle style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " cx="562.7367221912815" cy="204.13920000000002" r="2" fill="#4da74d" stroke="#ffffff" stroke-width="1"></circle><circle style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " cx="663.3493494000304" cy="220.3304" r="2" fill="#4da74d" stroke="#ffffff" stroke-width="1"></circle><circle style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " cx="762.9139284086882" cy="62.34533333333337" r="2" fill="#4da74d" stroke="#ffffff" stroke-width="1"></circle><circle style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " cx="862.4329401042986" cy="151.54000000000002" r="2" fill="#4da74d" stroke="#ffffff" stroke-width="1"></circle><circle style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " cx="963" cy="163.7648" r="2" fill="#4da74d" stroke="#ffffff" stroke-width="1"></circle><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1; " fill="#a7b3bc" stroke="none" d="M63,294.6954666666667C88.14176497392538,288.7606666666667,138.42529492177613,276.153589203473,163.5670598957015,270.9562666666667C188.72021669788873,265.756589203473,239.02653030226318,255.94906666666665,264.1796871044504,253.10746666666665C289.07083185661486,250.29546666666664,338.85312136094376,250.6279784426544,363.7442661131082,248.34186666666668C388.35061515872616,246.08191177598775,437.56331324996205,238.09413473780629,462.16966229558,234.9232C487.3114272695054,231.68326807113962,537.5949572173561,222.5639971158928,562.7367221912815,222.6984C587.8898789934688,222.83286378255946,638.1961925978432,249.73182687609076,663.3493494000304,235.99866666666668C688.2404941521949,222.40856020942408,738.0227836565238,121.46331059739072,762.9139284086882,113.40533333333335C787.7936813325908,105.35104393072405,837.553187180396,163.09030963334092,862.4329401042986,171.5496C887.5747050782239,180.0979763000076,937.8582350260747,178.9644,963,181.436L963,321L63,321Z" fill-opacity="1"></path><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " fill="none" stroke="#7a92a3" d="M63,294.6954666666667C88.14176497392538,288.7606666666667,138.42529492177613,276.153589203473,163.5670598957015,270.9562666666667C188.72021669788873,265.756589203473,239.02653030226318,255.94906666666665,264.1796871044504,253.10746666666665C289.07083185661486,250.29546666666664,338.85312136094376,250.6279784426544,363.7442661131082,248.34186666666668C388.35061515872616,246.08191177598775,437.56331324996205,238.09413473780629,462.16966229558,234.9232C487.3114272695054,231.68326807113962,537.5949572173561,222.5639971158928,562.7367221912815,222.6984C587.8898789934688,222.83286378255946,638.1961925978432,249.73182687609076,663.3493494000304,235.99866666666668C688.2404941521949,222.40856020942408,738.0227836565238,121.46331059739072,762.9139284086882,113.40533333333335C787.7936813325908,105.35104393072405,837.553187180396,163.09030963334092,862.4329401042986,171.5496C887.5747050782239,180.0979763000076,937.8582350260747,178.9644,963,181.436" stroke-width="3"></path><circle style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " cx="63" cy="294.6954666666667" r="2" fill="#7a92a3" stroke="#ffffff" stroke-width="1"></circle><circle style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " cx="163.5670598957015" cy="270.9562666666667" r="2" fill="#7a92a3" stroke="#ffffff" stroke-width="1"></circle><circle style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " cx="264.1796871044504" cy="253.10746666666665" r="2" fill="#7a92a3" stroke="#ffffff" stroke-width="1"></circle><circle style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " cx="363.7442661131082" cy="248.34186666666668" r="2" fill="#7a92a3" stroke="#ffffff" stroke-width="1"></circle><circle style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " cx="462.16966229558" cy="234.9232" r="2" fill="#7a92a3" stroke="#ffffff" stroke-width="1"></circle><circle style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " cx="562.7367221912815" cy="222.6984" r="2" fill="#7a92a3" stroke="#ffffff" stroke-width="1"></circle><circle style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " cx="663.3493494000304" cy="235.99866666666668" r="2" fill="#7a92a3" stroke="#ffffff" stroke-width="1"></circle><circle style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " cx="762.9139284086882" cy="113.40533333333335" r="2" fill="#7a92a3" stroke="#ffffff" stroke-width="1"></circle><circle style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " cx="862.4329401042986" cy="171.5496" r="2" fill="#7a92a3" stroke="#ffffff" stroke-width="1"></circle><circle style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " cx="963" cy="181.436" r="2" fill="#7a92a3" stroke="#ffffff" stroke-width="1"></circle><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1; " fill="#2577b5" stroke="none" d="M63,294.6954666666667C88.14176497392538,294.4192,138.42529492177613,296.3598392449981,163.5670598957015,293.5904C188.72021669788873,290.81970591166476,239.02653030226318,273.7610862129145,264.1796871044504,272.53493333333336C289.07083185661486,271.3215528795812,338.85312136094376,286.1866020713464,363.7442661131082,283.83226666666667C388.35061515872616,281.50486873801304,437.56331324996205,256.1297732997481,462.16966229558,253.808C487.3114272695054,251.43570663308142,537.5949572173561,262.60222257455644,562.7367221912815,265.056C587.8898789934688,267.5108892412231,638.1961925978432,285.100417452007,663.3493494000304,273.4426666666667C688.2404941521949,261.90635078534035,738.0227836565238,179.5173562066072,762.9139284086882,172.27973333333335C787.7936813325908,165.04542287327385,837.553187180396,207.40726874667882,862.4329401042986,215.55493333333334C887.5747050782239,223.78840208001213,937.8582350260747,232.24193333333335,963,237.80426666666668L963,321L63,321Z" fill-opacity="1"></path><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " fill="none" stroke="#0b62a4" d="M63,294.6954666666667C88.14176497392538,294.4192,138.42529492177613,296.3598392449981,163.5670598957015,293.5904C188.72021669788873,290.81970591166476,239.02653030226318,273.7610862129145,264.1796871044504,272.53493333333336C289.07083185661486,271.3215528795812,338.85312136094376,286.1866020713464,363.7442661131082,283.83226666666667C388.35061515872616,281.50486873801304,437.56331324996205,256.1297732997481,462.16966229558,253.808C487.3114272695054,251.43570663308142,537.5949572173561,262.60222257455644,562.7367221912815,265.056C587.8898789934688,267.5108892412231,638.1961925978432,285.100417452007,663.3493494000304,273.4426666666667C688.2404941521949,261.90635078534035,738.0227836565238,179.5173562066072,762.9139284086882,172.27973333333335C787.7936813325908,165.04542287327385,837.553187180396,207.40726874667882,862.4329401042986,215.55493333333334C887.5747050782239,223.78840208001213,937.8582350260747,232.24193333333335,963,237.80426666666668" stroke-width="3"></path><circle style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " cx="63" cy="294.6954666666667" r="2" fill="#0b62a4" stroke="#ffffff" stroke-width="1"></circle><circle style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " cx="163.5670598957015" cy="293.5904" r="2" fill="#0b62a4" stroke="#ffffff" stroke-width="1"></circle><circle style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " cx="264.1796871044504" cy="272.53493333333336" r="2" fill="#0b62a4" stroke="#ffffff" stroke-width="1"></circle><circle style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " cx="363.7442661131082" cy="283.83226666666667" r="2" fill="#0b62a4" stroke="#ffffff" stroke-width="1"></circle><circle style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " cx="462.16966229558" cy="253.808" r="2" fill="#0b62a4" stroke="#ffffff" stroke-width="1"></circle><circle style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " cx="562.7367221912815" cy="265.056" r="2" fill="#0b62a4" stroke="#ffffff" stroke-width="1"></circle><circle style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " cx="663.3493494000304" cy="273.4426666666667" r="2" fill="#0b62a4" stroke="#ffffff" stroke-width="1"></circle><circle style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " cx="762.9139284086882" cy="172.27973333333335" r="2" fill="#0b62a4" stroke="#ffffff" stroke-width="1"></circle><circle style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " cx="862.4329401042986" cy="215.55493333333334" r="2" fill="#0b62a4" stroke="#ffffff" stroke-width="1"></circle><circle style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " cx="963" cy="237.80426666666668" r="2" fill="#0b62a4" stroke="#ffffff" stroke-width="1"></circle></svg><div class="morris-hover morris-default-style" style="left: 206.6796871044504px; top: 168px; display: none; "><div class="morris-hover-row-label">2010 Q3</div><div class="morris-hover-point" style="color: #0b62a4">
+	iPhone:
+	4,912
+	</div><div class="morris-hover-point" style="color: #7A92A3">
+	iPad:
+	1,969
+	</div><div class="morris-hover-point" style="color: #4da74d">
+	iPod Touch:
+	2,501
+	</div>
+	</div>
+</div>
+	    </div>
+	    <!-- /.panel-body -->
+	</div>
+
+	{#}
+	<!-- /.panel -->
+	<div class="panel panel-default">
+	    <div class="panel-heading">
+	        <i class="fa fa-bar-chart-o fa-fw"></i> Bar Chart Example
+	        <div class="pull-right">
+	            <div class="btn-group">
+	                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+	                    Actions
+	                    <span class="caret"></span>
+	                </button>
+	                <ul class="dropdown-menu pull-right" role="menu">
+	                    <li><a href="#">Action</a>
+	                    </li>
+	                    <li><a href="#">Another action</a>
+	                    </li>
+	                    <li><a href="#">Something else here</a>
+	                    </li>
+	                    <li class="divider"></li>
+	                    <li><a href="#">Separated link</a>
+	                    </li>
+	                </ul>
+	            </div>
+	        </div>
+	    </div>
+	    <!-- /.panel-heading -->
+	    <div class="panel-body">
+	        <div class="row">
+	            <div class="col-lg-4">
+	                <div class="table-responsive">
+	                    <table class="table table-bordered table-hover table-striped">
+	                        <thead>
+	                            <tr>
+	                                <th>#</th>
+	                                <th>Date</th>
+	                                <th>Time</th>
+	                                <th>Amount</th>
+	                            </tr>
+	                        </thead>
+	                        <tbody>
+	                            <tr>
+	                                <td>3326</td>
+	                                <td>10/21/2013</td>
+	                                <td>3:29 PM</td>
+	                                <td>$321.33</td>
+	                            </tr>
+	                            <tr>
+	                                <td>3325</td>
+	                                <td>10/21/2013</td>
+	                                <td>3:20 PM</td>
+	                                <td>$234.34</td>
+	                            </tr>
+	                            <tr>
+	                                <td>3324</td>
+	                                <td>10/21/2013</td>
+	                                <td>3:03 PM</td>
+	                                <td>$724.17</td>
+	                            </tr>
+	                            <tr>
+	                                <td>3323</td>
+	                                <td>10/21/2013</td>
+	                                <td>3:00 PM</td>
+	                                <td>$23.71</td>
+	                            </tr>
+	                            <tr>
+	                                <td>3322</td>
+	                                <td>10/21/2013</td>
+	                                <td>2:49 PM</td>
+	                                <td>$8345.23</td>
+	                            </tr>
+	                            <tr>
+	                                <td>3321</td>
+	                                <td>10/21/2013</td>
+	                                <td>2:23 PM</td>
+	                                <td>$245.12</td>
+	                            </tr>
+	                            <tr>
+	                                <td>3320</td>
+	                                <td>10/21/2013</td>
+	                                <td>2:15 PM</td>
+	                                <td>$5663.54</td>
+	                            </tr>
+	                            <tr>
+	                                <td>3319</td>
+	                                <td>10/21/2013</td>
+	                                <td>2:13 PM</td>
+	                                <td>$943.45</td>
+	                            </tr>
+	                        </tbody>
+	                    </table>
+	                </div>
+	                <!-- /.table-responsive -->
+	            </div>
+	            <!-- /.col-lg-4 (nested) -->
+	            <div class="col-lg-8">
+	                <div id="morris-bar-chart" style="position: relative; "><svg style="overflow: hidden; position: relative; left: -0.316650390625px; " height="357" version="1.1" width="649" xmlns="http://www.w3.org/2000/svg"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); ">Created with Raphaël 2.1.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); "></defs><text style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: sans-serif; " x="34.5" y="321" text-anchor="end" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" font-size="12px" font-family="sans-serif" font-weight="normal"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " dy="4.5">0</tspan></text><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " fill="none" stroke="#aaaaaa" d="M47,321H624" stroke-width="0.5"></path><text style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: sans-serif; " x="34.5" y="247" text-anchor="end" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" font-size="12px" font-family="sans-serif" font-weight="normal"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " dy="4.5">25</tspan></text><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " fill="none" stroke="#aaaaaa" d="M47,247H624" stroke-width="0.5"></path><text style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: sans-serif; " x="34.5" y="173" text-anchor="end" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" font-size="12px" font-family="sans-serif" font-weight="normal"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " dy="4.5">50</tspan></text><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " fill="none" stroke="#aaaaaa" d="M47,173H624" stroke-width="0.5"></path><text style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: sans-serif; " x="34.5" y="99" text-anchor="end" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" font-size="12px" font-family="sans-serif" font-weight="normal"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " dy="4.5">75</tspan></text><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " fill="none" stroke="#aaaaaa" d="M47,99H624" stroke-width="0.5"></path><text style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: sans-serif; " x="34.5" y="25" text-anchor="end" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" font-size="12px" font-family="sans-serif" font-weight="normal"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " dy="4.5">100</tspan></text><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " fill="none" stroke="#aaaaaa" d="M47,25H624" stroke-width="0.5"></path><text style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: sans-serif; " x="582.7857142857143" y="333.5" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" font-size="12px" font-family="sans-serif" font-weight="normal" transform="matrix(1,0,0,1,0,7.5)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " dy="4.5">2012</tspan></text><text style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: sans-serif; " x="500.35714285714283" y="333.5" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" font-size="12px" font-family="sans-serif" font-weight="normal" transform="matrix(1,0,0,1,0,7.5)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " dy="4.5">2011</tspan></text><text style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: sans-serif; " x="417.92857142857144" y="333.5" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" font-size="12px" font-family="sans-serif" font-weight="normal" transform="matrix(1,0,0,1,0,7.5)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " dy="4.5">2010</tspan></text><text style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: sans-serif; " x="335.5" y="333.5" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" font-size="12px" font-family="sans-serif" font-weight="normal" transform="matrix(1,0,0,1,0,7.5)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " dy="4.5">2009</tspan></text><text style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: sans-serif; " x="253.07142857142858" y="333.5" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" font-size="12px" font-family="sans-serif" font-weight="normal" transform="matrix(1,0,0,1,0,7.5)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " dy="4.5">2008</tspan></text><text style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: sans-serif; " x="170.64285714285714" y="333.5" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" font-size="12px" font-family="sans-serif" font-weight="normal" transform="matrix(1,0,0,1,0,7.5)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " dy="4.5">2007</tspan></text><text style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: sans-serif; " x="88.21428571428572" y="333.5" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#888888" font-size="12px" font-family="sans-serif" font-weight="normal" transform="matrix(1,0,0,1,0,7.5)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " dy="4.5">2006</tspan></text><rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1; " x="57.30357142857143" y="25" width="29.410714285714285" height="296" r="0" rx="0" ry="0" fill="#0b62a4" stroke="none" fill-opacity="1"></rect><rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1; " x="89.71428571428572" y="54.60000000000002" width="29.410714285714285" height="266.4" r="0" rx="0" ry="0" fill="#7a92a3" stroke="none" fill-opacity="1"></rect><rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1; " x="139.73214285714286" y="99" width="29.410714285714285" height="222" r="0" rx="0" ry="0" fill="#0b62a4" stroke="none" fill-opacity="1"></rect><rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1; " x="172.14285714285714" y="128.6" width="29.410714285714285" height="192.4" r="0" rx="0" ry="0" fill="#7a92a3" stroke="none" fill-opacity="1"></rect><rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1; " x="222.16071428571428" y="173" width="29.410714285714285" height="148" r="0" rx="0" ry="0" fill="#0b62a4" stroke="none" fill-opacity="1"></rect><rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1; " x="254.57142857142856" y="202.6" width="29.410714285714285" height="118.4" r="0" rx="0" ry="0" fill="#7a92a3" stroke="none" fill-opacity="1"></rect><rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1; " x="304.5892857142857" y="99" width="29.410714285714285" height="222" r="0" rx="0" ry="0" fill="#0b62a4" stroke="none" fill-opacity="1"></rect><rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1; " x="337" y="128.6" width="29.410714285714285" height="192.4" r="0" rx="0" ry="0" fill="#7a92a3" stroke="none" fill-opacity="1"></rect><rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1; " x="387.01785714285717" y="173" width="29.410714285714285" height="148" r="0" rx="0" ry="0" fill="#0b62a4" stroke="none" fill-opacity="1"></rect><rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1; " x="419.42857142857144" y="202.6" width="29.410714285714285" height="118.4" r="0" rx="0" ry="0" fill="#7a92a3" stroke="none" fill-opacity="1"></rect><rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1; " x="469.4464285714286" y="99" width="29.410714285714285" height="222" r="0" rx="0" ry="0" fill="#0b62a4" stroke="none" fill-opacity="1"></rect><rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1; " x="501.8571428571429" y="128.6" width="29.410714285714285" height="192.4" r="0" rx="0" ry="0" fill="#7a92a3" stroke="none" fill-opacity="1"></rect><rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1; " x="551.875" y="25" width="29.410714285714285" height="296" r="0" rx="0" ry="0" fill="#0b62a4" stroke="none" fill-opacity="1"></rect><rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1; " x="584.2857142857143" y="54.60000000000002" width="29.410714285714285" height="266.4" r="0" rx="0" ry="0" fill="#7a92a3" stroke="none" fill-opacity="1"></rect></svg><div class="morris-hover morris-default-style" style="display: none; "></div></div>
+	            </div>
+	            <!-- /.col-lg-8 (nested) -->
+	        </div>
+	        <!-- /.row -->
+	    </div>
+	    <!-- /.panel-body -->
+	</div>
+	<!-- /.panel -->
+	<div class="panel panel-default">
+	    <div class="panel-heading">
+	        <i class="fa fa-clock-o fa-fw"></i> Timeline
+	    </div>
+	    <!-- /.panel-heading -->
+	    <div class="panel-body">
+	        <ul class="timeline">
+	            <li>
+	                <div class="timeline-badge"><i class="fa fa-check"></i>
+	                </div>
+	                <div class="timeline-panel">
+	                    <div class="timeline-heading">
+	                        <h4 class="timeline-title">Timeline Event</h4>
+	                        <p>
+	                            <small class="text-muted"><i class="fa fa-time"></i> 11 hours ago via Twitter</small>
+	                        </p>
+	                    </div>
+	                    <div class="timeline-body">
+	                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
+	                    </div>
+	                </div>
+	            </li>
+	            <li class="timeline-inverted">
+	                <div class="timeline-badge warning"><i class="fa fa-credit-card"></i>
+	                </div>
+	                <div class="timeline-panel">
+	                    <div class="timeline-heading">
+	                        <h4 class="timeline-title">Timeline Event</h4>
+	                    </div>
+	                    <div class="timeline-body">
+	                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
+	                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
+	                    </div>
+	                </div>
+	            </li>
+	            <li>
+	                <div class="timeline-badge danger"><i class="fa fa-credit-card"></i>
+	                </div>
+	                <div class="timeline-panel">
+	                    <div class="timeline-heading">
+	                        <h4 class="timeline-title">Timeline Event</h4>
+	                    </div>
+	                    <div class="timeline-body">
+	                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
+	                    </div>
+	                </div>
+	            </li>
+	            <li class="timeline-inverted">
+	                <div class="timeline-panel">
+	                    <div class="timeline-heading">
+	                        <h4 class="timeline-title">Timeline Event</h4>
+	                    </div>
+	                    <div class="timeline-body">
+	                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
+	                    </div>
+	                </div>
+	            </li>
+	            <li>
+	                <div class="timeline-badge info"><i class="fa fa-save"></i>
+	                </div>
+	                <div class="timeline-panel">
+	                    <div class="timeline-heading">
+	                        <h4 class="timeline-title">Timeline Event</h4>
+	                    </div>
+	                    <div class="timeline-body">
+	                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
+	                        <hr>
+	                        <div class="btn-group">
+	                            <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+	                                <i class="fa fa-cog"></i> 
+	                                <span class="caret"></span>
+	                            </button>
+	                            <ul class="dropdown-menu" role="menu">
+	                                <li><a href="#">Action</a>
+	                                </li>
+	                                <li><a href="#">Another action</a>
+	                                </li>
+	                                <li><a href="#">Something else here</a>
+	                                </li>
+	                                <li class="divider"></li>
+	                                <li><a href="#">Separated link</a>
+	                                </li>
+	                            </ul>
+	                        </div>
+	                    </div>
+	                </div>
+	            </li>
+	            <li>
+	                <div class="timeline-panel">
+	                    <div class="timeline-heading">
+	                        <h4 class="timeline-title">Timeline Event</h4>
+	                    </div>
+	                    <div class="timeline-body">
+	                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
+	                    </div>
+	                </div>
+	            </li>
+	            <li class="timeline-inverted">
+	                <div class="timeline-badge success"><i class="fa fa-thumbs-up"></i>
+	                </div>
+	                <div class="timeline-panel">
+	                    <div class="timeline-heading">
+	                        <h4 class="timeline-title">Timeline Event</h4>
+	                    </div>
+	                    <div class="timeline-body">
+	                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
+	                    </div>
+	                </div>
+	            </li>
+	        </ul>
+	    </div>
+	    <!-- /.panel-body -->
+	</div>
+	{#}
+	<!-- /.panel -->
+	</div>
+
+{% endblock %}
