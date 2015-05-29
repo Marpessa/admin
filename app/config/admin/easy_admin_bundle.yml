@@ -1,9 +1,15 @@
 easy_admin:
     site_name: 'Cloud <em style="font-size: 80%; color: yellow">Web Sport.</em>'
     design:
+        assets:
+            css:
+                - 'AppAdminBundle/css/custom.css'
         brand_color: '#3498db'
         color_scheme: 'dark'
         form_theme: 'horizontal'
+        templates:
+            layout: 'AppAdminBundle:Default:layout.html.twig'
+            list:   'AppAdminBundle:Default:list.html.twig'
     formats:
         date:     'd/m/Y'
         time:     'H:i'

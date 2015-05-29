@@ -20,13 +20,15 @@ class AppKernel extends Kernel
             // Extensions
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
 
-            new AppBundle\AppBundle(),
-
-            // User
-            new FOS\UserBundle\FOSUserBundle(),
+            // Front
+            new App\HomeFrontendBundle\AppHomeFrontendBundle(),
 
             // Admin
             new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
+            new App\AdminBundle\AppAdminBundle(),
+
+            // User
+            new FOS\UserBundle\FOSUserBundle(),
 
             // Core
             new Core\UserBundle\CoreUserBundle(),

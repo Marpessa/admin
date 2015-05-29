@@ -1,14 +1,12 @@
-_homepage:
-    defaults: { _controller: AppBundle:Default:index, culture: fr }
-    pattern:  /{culture}
-    requirements:
-        culture:  fr
+#Frontend
+AppHomeFrontendBundle:
+    resource: "@AppHomeFrontendBundle/Resources/config/routing.yml"
+    prefix:   /
 
-# Admin
-easy_admin_bundle:
-    resource: "@EasyAdminBundle/Controller/"
-    type:     annotation
-    prefix:   /admin/
+#Admin
+AppAdminBundle:
+    resource: "@AppAdminBundle/Resources/config/routing.yml"
+    prefix:   /admin
 
 #FOS USer Bundle Import
 fos_user_security:
