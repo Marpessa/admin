@@ -1,0 +1,5 @@
+_homepage:
+    defaults: { _controller: AppHomeFrontendBundle:Default:index, culture: fr }
+    pattern:  /{culture}
+    requirements:
+        culture:  fr

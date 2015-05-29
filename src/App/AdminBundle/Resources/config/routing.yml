@@ -1,0 +1,8 @@
+easy_admin_bundle:
+    resource: "@AppAdminBundle/Controller/AdminController.php"
+    type:     annotation
+    prefix:   /
+
+admin_dashboard:
+    defaults: { _controller: AppAdminBundle:Admin:dashboard }
+    pattern:  /dashboard/
