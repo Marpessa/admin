@@ -9,7 +9,7 @@ use JavierEguiluz\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdmin
 
 class AdminController extends BaseAdminController
 {
-		/**
+	/**
      * @Route("/", name="admin")
      */
     public function indexAction(Request $request)
@@ -27,5 +27,46 @@ class AdminController extends BaseAdminController
     public function dashboardAction(Request $request)
     {
     	return $this->render('AppAdminBundle:Backend:dashboard.html.twig', array());
+    }
+
+    public function menuAction(Request $request)
+    {
+        $domain = $_SERVER["SERVER_NAME"];
+
+        $part_list = $this->getDoctrine()
+                          ->getRepository('CorePartBundle:Part')
+                          ->findByDomain( $_SERVER["SERVER_NAME"] )
+                          ->getArrayResult();
+
+
+        $current_part_slug = NULL;
+
+        $session = $this->get('session');
+
+        if( !empty( $settings["part_slug"] ) ) {
+          $current_part_slug = $settings["part_slug"];
+        } elseif( !empty( $part_list[0]['slug'] ) ) {
+          $current_part_slug = $part_list[0]['slug'];
+        }
+        $session->set( 'current_part_slug', $current_part_slug) ;
+
+        /*if( !empty( $current_part_slug ) ) {
+            // Get Current Part
+            $current_part = $this->em->getRepository('CorePartBundle:Part')
+                           ->findBySlug( $current_part_slug )
+                           ->getResult(\Doctrine\ORM\Query::HYDRATE_ARRAY);
+
+            if( empty( $current_part ) ) {
+                $session->set('current_part_slug', NULL);
+                throw new NotFoundHttpException("Part not found");
+            }
+
+            $current_part = $current_part[0];
+
+            return $this->render( 'AppAdminBundle:Backend:menu.html.twig', array( 'part_list' => $part_list,
+                                                                                  'current_part' => $current_part ) );
+        } else {
+          throw new NotFoundHttpException("Part not found - Please contact administrator");
+        }*/
     }
 }

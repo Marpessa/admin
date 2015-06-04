@@ -1,1 +1,5 @@
 {% extends '@EasyAdmin/default/layout.html.twig' %}
+
+{% block navigation_items %}
+		{{ render(controller("AppAdminBundle:Admin:menu", {}), {}) }}
+{% endblock %}
