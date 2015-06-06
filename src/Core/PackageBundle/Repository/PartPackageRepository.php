@@ -12,7 +12,7 @@ class PartPackageRepository extends EntityRepository
 
 		$q = $this->createQueryBuilder('part_package')
               ->select('part_package.id, part_package.title, part_package.slug')
-              ->addSelect('package.link AS package_link, package.has_unique_part_package AS package_has_unique_part_package')
+              ->addSelect('package.entityName AS package_entity_name')
               ->addSelect('package_group.id AS package_group_id, package_group.icon AS package_group_icon, package_group.title AS package_group_title')
 
               ->innerJoin('part_package.part_id', 'part')

@@ -249,28 +249,6 @@ class LoadPartPackageData extends AbstractFixture implements OrderedFixtureInter
                 $partPackage20[$i]->setModificationUserId( $this->getReference('user1') );
                 $partPackage20[$i]->setPackageId( $this->getReference('package19') );
                 $partPackage20[$i]->setPartId( $this->getReference( 'part' . $i ) );
-
-                $partPackage21[$i] = new PartPackage();
-                $partPackage21[$i]->setTitle( 'Groupes d\'utilisateurs' );
-                $partPackage21[$i]->setDescription( 'Permet de gérer les groupes d\'utilisateurs' );
-                $partPackage21[$i]->setVersion( '0.0.1' );
-                $partPackage21[$i]->setIsPublished( 1 );
-                $partPackage21[$i]->setPosition( 22 );
-                $partPackage21[$i]->setCreationUserId( $this->getReference('user1') );
-                $partPackage21[$i]->setModificationUserId( $this->getReference('user1') );
-                $partPackage21[$i]->setPackageId( $this->getReference('package20') );
-                $partPackage21[$i]->setPartId( $this->getReference( 'part' . $i ) );
-
-                $partPackage22[$i] = new PartPackage();
-                $partPackage22[$i]->setTitle( 'Utilisateurs' );
-                $partPackage22[$i]->setDescription( 'Permet de gérer les utilisateurs' );
-                $partPackage22[$i]->setVersion( '0.0.1' );
-                $partPackage22[$i]->setIsPublished( 1 );
-                $partPackage22[$i]->setPosition( 23 );
-                $partPackage22[$i]->setCreationUserId( $this->getReference('user1') );
-                $partPackage22[$i]->setModificationUserId( $this->getReference('user1') );
-                $partPackage22[$i]->setPackageId( $this->getReference('package21') );
-                $partPackage22[$i]->setPartId( $this->getReference( 'part' . $i ) );
             }
 
             if( in_array( $i, array(0, 1, 2, 3, 4) ) ) {
@@ -317,7 +295,6 @@ class LoadPartPackageData extends AbstractFixture implements OrderedFixtureInter
             if( !empty( $partPackage18[$i] ) ) { $manager->persist($partPackage18[$i]); }
             if( !empty( $partPackage19[$i] ) ) { $manager->persist($partPackage19[$i]); }
             if( !empty( $partPackage20[$i] ) ) { $manager->persist($partPackage20[$i]); }
-            if( !empty( $partPackage21[$i] ) ) { $manager->persist($partPackage21[$i]); }
             if( !empty( $partPackage22[$i] ) ) { $manager->persist($partPackage22[$i]); }
             if( !empty( $partPackage23[$i] ) ) { $manager->persist($partPackage23[$i]); }
         }

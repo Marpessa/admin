@@ -4,7 +4,10 @@
 namespace App\AdminBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\EventDispatcher\GenericEvent;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use JavierEguiluz\Bundle\EasyAdminBundle\Event\EasyAdminEvents;
 use JavierEguiluz\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
 
 class AdminController extends BaseAdminController
@@ -23,22 +26,25 @@ class AdminController extends BaseAdminController
         // don't forget to add this line to serve the regular backend pages
         return parent::indexAction($request);
     }
+    
+    protected function listAction()
+    {
+        return parent::listAction();
+    }
 
     public function dashboardAction(Request $request)
     {
     	return $this->render('AppAdminBundle:Backend:dashboard.html.twig', array());
     }
 
-    public function menuAction(Request $request)
+    public function partListAction(Request $request)
     {
         $domain = $_SERVER["SERVER_NAME"];
+        $domain = 'admin.cloudwebsport.com'; // Temp
 
-        $part_list = $this->getDoctrine()
-                          ->getRepository('CorePartBundle:Part')
-                          ->findByDomain( $_SERVER["SERVER_NAME"] )
-                          ->getArrayResult();
+        $part_list = $this->getPartList( $domain );
 
-
+        // Current Part Slug
         $current_part_slug = NULL;
 
         $session = $this->get('session');
@@ -48,25 +54,41 @@ class AdminController extends BaseAdminController
         } elseif( !empty( $part_list[0]['slug'] ) ) {
           $current_part_slug = $part_list[0]['slug'];
         }
-        $session->set( 'current_part_slug', $current_part_slug) ;
+        $session->set('current_part_slug', $current_part_slug);
 
-        /*if( !empty( $current_part_slug ) ) {
-            // Get Current Part
-            $current_part = $this->em->getRepository('CorePartBundle:Part')
-                           ->findBySlug( $current_part_slug )
-                           ->getResult(\Doctrine\ORM\Query::HYDRATE_ARRAY);
+        return $this->render( 'AppAdminBundle:Backend:part_list.html.twig', array( 'part_list' => $part_list ) );
+    }
 
-            if( empty( $current_part ) ) {
-                $session->set('current_part_slug', NULL);
-                throw new NotFoundHttpException("Part not found");
-            }
+    public function menuAction(Request $request)
+    {
+        $current_part = "";
 
-            $current_part = $current_part[0];
+        $session = $this->get('session');
+        $current_part_slug = $session->get('current_part_slug');
 
-            return $this->render( 'AppAdminBundle:Backend:menu.html.twig', array( 'part_list' => $part_list,
-                                                                                  'current_part' => $current_part ) );
+        if( !empty( $current_part_slug ) ) {
+
+            $part_package_list = NULL;
+
+            $part_package_list = $this->getDoctrine()
+                                      ->getRepository('CorePackageBundle:PartPackage')
+                                      ->findByPart( $current_part_slug )
+                                      ->getArrayResult();
+
+            return $this->render( 'AppAdminBundle:Backend:menu.html.twig', array( 'part_package_list' => $part_package_list ) );
         } else {
           throw new NotFoundHttpException("Part not found - Please contact administrator");
-        }*/
+        }
+    }
+
+
+    private function getPartList( $domain )
+    {
+        $part_list = $this->getDoctrine()
+                          ->getRepository('CorePartBundle:Part')
+                          ->findByDomain( $domain )
+                          ->getArrayResult();
+
+        return $part_list;
     }
 }

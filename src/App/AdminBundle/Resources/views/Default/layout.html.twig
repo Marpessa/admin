@@ -1,5 +1,14 @@
 {% extends '@EasyAdmin/default/layout.html.twig' %}
 
+{% block navbar_header %}
+	{{ parent() }}
+{% endblock navbar_header %}
+
+{% block header_menu %}
+	{{ render(controller("AppAdminBundle:Admin:partList", {}), {}) }}
+	{{ parent() }}
+{% endblock header_menu %}
+
 {% block navigation_items %}
-		{{ render(controller("AppAdminBundle:Admin:menu", {}), {}) }}
+	{{ render(controller("AppAdminBundle:Admin:menu", {}), {}) }}
 {% endblock %}

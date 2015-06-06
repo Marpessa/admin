@@ -49,9 +49,8 @@ easy_admin:
                 fields: 
                     - 'id'
                     - { property: 'title', type: 'text', label: 'Titre' }
-                    - { property: 'link', type: 'text', label: 'Chemin' }
+                    - { property: 'entityName', type: 'text', label: 'Entité' }
                     - { property: 'isPublished', type: 'toggle', label: 'Publié ?' }
-                    - { property: 'hasUniquePartPackage', type: 'toggle', label: 'Instance unique ?' }
                     - { property: 'updatedAt', type: 'date', label: 'Date de mise à jour' }
                     - { property: 'version', type: 'text', label: 'Version' }
         PackageGroup:

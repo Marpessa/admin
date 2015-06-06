@@ -19,6 +19,7 @@ class LoadArticleData extends AbstractFixture implements OrderedFixtureInterface
         $article1->setTitle( "Lorem ipsum dolor sit amet" );
         $article1->setVersion( "0.0.1" );
         $article1->setContent( "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla odio diam, venenatis at ligula non, accumsan laoreet massa. Curabitur aliquet est nec ultrices convallis. Praesent sagittis, turpis quis tempor varius, risus metus pellentesque urna, in venenatis" );
+        $article1->setIsPublished( TRUE );
         $article1->setCreationUserId( $this->getReference('user1') );
         $article1->setModificationUserId( $this->getReference('user1') );
         $article1->setPartPackageId( $this->getReference('partPackage-news') );
@@ -28,6 +29,7 @@ class LoadArticleData extends AbstractFixture implements OrderedFixtureInterface
         $article2->setTitle( "Lorem ipsum dolor sit amet" );
         $article2->setVersion( "0.0.1" );
         $article2->setContent( "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla odio diam, venenatis at ligula non, accumsan laoreet massa. Curabitur aliquet est nec ultrices convallis. Praesent sagittis, turpis quis tempor varius, risus metus pellentesque urna, in venenatis" );
+        $article2->setIsPublished( FALSE );
         $article2->setCreationUserId( $this->getReference('user1') );
         $article2->setModificationUserId( $this->getReference('user1') );
         $article2->setPartPackageId( $this->getReference('partPackage-news') );

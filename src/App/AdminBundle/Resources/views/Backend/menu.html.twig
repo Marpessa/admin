@@ -1,7 +1,17 @@
-{% for item in easyadmin_config('entities') %}
-    <li class="{{ item.name|lower == app.request.get('entity')|lower ? 'active' : '' }}">
-        <a href="{{ path('admin', { entity: item.name, action: 'list', view: 'list' }) }}">
-            test1 - {{- item.label|trans -}}
+{% for part_package in part_package_list %}
+    <li class="{{ part_package.slug|lower == app.request.get('entity')|lower ? 'active' : '' }}">
+        <a href="{{ path('admin', { entity: part_package.package_entity_name, slug: part_package.slug, action: 'list', view: 'list' }) }}">
+            {{- part_package.title|trans -}}
         </a>
     </li>
 {% endfor %}
+
+{#}
+{% for item in easyadmin_config('entities') %}
+    <li class="{{ item.name|lower == app.request.get('entity')|lower ? 'active' : '' }}">
+        <a href="{{ path('admin', { entity: item.name, action: 'list', view: 'list' }) }}">
+            {{- item.label|trans -}}
+        </a>
+    </li>
+{% endfor %}
+{#}

@@ -78,16 +78,11 @@ class Package {
     private $slug;
 
     /**
-     * @ORM\Column(type="string", length=128, nullable=false)
+     * @ORM\Column(name="entity_name", type="string", length=128, nullable=false)
      * @Assert\NotBlank()
      */
-    private $link;
+    private $entityName;
     
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
-     */
-    private $has_unique_part_package;
-
     /**
      * @var datetime $createdAt
      *
@@ -251,23 +246,23 @@ class Package {
     }
 
     /**
-     * Set has_unique_part_package
+     * Set entityName
      *
-     * @param boolean $has_unique_part_package
+     * @param string $entityName
      */
-    public function setHasUniquePartPackage($hasUniquePartPackage)
+    public function setEntityName($entityName)
     {
-        $this->has_unique_part_package = $hasUniquePartPackage;
+        $this->entityName = $entityName;
     }
 
     /**
-     * Get has_unique_part_package
+     * Get entityName
      *
-     * @return boolean 
+     * @return string 
      */
-    public function getHasUniquePartPackage()
+    public function getEntityName()
     {
-        return $this->has_unique_part_package;
+        return $this->entityName;
     }
 
     /**
@@ -473,28 +468,5 @@ class Package {
     public function getPackageGroupId()
     {
         return $this->package_group_id;
-    }
-
-    /**
-     * Set link
-     *
-     * @param string $link
-     * @return Package
-     */
-    public function setLink($link)
-    {
-        $this->link = $link;
-
-        return $this;
-    }
-
-    /**
-     * Get link
-     *
-     * @return string 
-     */
-    public function getLink()
-    {
-        return $this->link;
     }
 }
