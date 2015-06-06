@@ -53,18 +53,20 @@ class Widget
      /**
      * @var User
      *
+     * @ORM\Column(name="creation_user_id")
      * @ORM\ManyToOne(targetEntity="Core\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="creation_user_id", referencedColumnName="id", onDelete="SET NULL")
      */
-    private $creation_user_id;
+    private $creationUserId;
 
     /**
      * @var User
      *
+     * @ORM\Column(name="modification_user_id")
      * @ORM\ManyToOne(targetEntity="Core\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="modification_user_id", referencedColumnName="id", onDelete="SET NULL")
      */
-    private $modification_user_id;
+    private $modificationUserId;
 
     /**
      * @var datetime $created
@@ -91,10 +93,11 @@ class Widget
     /**
      * @var PartPackage
      *
+     * @ORM\Column(name="part_package_id")
      * @ORM\ManyToOne(targetEntity="Core\PackageBundle\Entity\PartPackage")
      * @ORM\JoinColumn(name="part_package_id", referencedColumnName="id", onDelete="SET NULL")
      */
-    private $part_package_id;
+    private $partPackageId;
 
 
     /**
@@ -246,71 +249,71 @@ class Widget
     }
 
     /**
-     * Set creation_user_id
+     * Set creationUserId
      *
      * @param \Core\UserBundle\Entity\User $creationUserId
      * @return Widget
      */
     public function setCreationUserId(\Core\UserBundle\Entity\User $creationUserId = null)
     {
-        $this->creation_user_id = $creationUserId;
+        $this->creationUserId = $creationUserId;
 
         return $this;
     }
 
     /**
-     * Get creation_user_id
+     * Get creationUserId
      *
      * @return \Core\UserBundle\Entity\User 
      */
     public function getCreationUserId()
     {
-        return $this->creation_user_id;
+        return $this->creationUserId;
     }
 
     /**
-     * Set modification_user_id
+     * Set modificationUserId
      *
      * @param \Core\UserBundle\Entity\User $modificationUserId
      * @return Widget
      */
     public function setModificationUserId(\Core\UserBundle\Entity\User $modificationUserId = null)
     {
-        $this->modification_user_id = $modificationUserId;
+        $this->modificationUserId = $modificationUserId;
 
         return $this;
     }
 
     /**
-     * Get modification_user_id
+     * Get modificationUserId
      *
      * @return \Core\UserBundle\Entity\User 
      */
     public function getModificationUserId()
     {
-        return $this->modification_user_id;
+        return $this->modificationUserId;
     }
 
     /**
-     * Set part_package_id
+     * Set partPackageId
      *
      * @param \Core\PackageBundle\Entity\PartPackage $partPackageId
      * @return Widget
      */
     public function setPartPackageId(\Core\PackageBundle\Entity\PartPackage $partPackageId = null)
     {
-        $this->part_package_id = $partPackageId;
+        $this->partPackageId = $partPackageId;
 
         return $this;
     }
 
     /**
-     * Get part_package_id
+     * Get partPackageId
      *
      * @return \Core\PackageBundle\Entity\PartPackage 
      */
     public function getPartPackageId()
     {
-        return $this->part_package_id;
+        return $this->partPackageId;
     }
 }

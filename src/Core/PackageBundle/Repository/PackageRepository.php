@@ -11,13 +11,13 @@ class PackageRepository extends EntityRepository
     $em = $this->getEntityManager();
 
 		$q = $this->createQueryBuilder('p')
-              ->select('p.title, p.slug, p.entity_name')
+              ->select('p.title, p.slug, p.entityName')
               ->addSelect('pg.id AS pg_id, pg.icon AS pg_icon, pg.title AS pg_title')
               // ->from('CorePackageBundle:Package', 'p')
-              ->innerJoin('p.package_group_id', 'pg')
+              ->innerJoin('p.packageGroupId', 'pg')
               //->leftJoin('p.part_id', 'part')
 
-              ->where('p.is_published = 1')
+              ->where('p.isPublished = 1')
               //->andWhere('d.url = :domain')
 
               ->orderBy('pg.title', 'ASC')

@@ -50,26 +50,29 @@ class PackageOption {
     private $description;
 
     /**
+     * @ORM\Column(name="is_published")
      * @ORM\Column(type="boolean")
      * @Assert\NotBlank()
      */
-    private $is_published;
+    private $isPublished;
 
     /**
      * @var User
      *
+     * @ORM\Column(name="creation_user_id")
      * @ORM\ManyToOne(targetEntity="Core\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="creation_user_id", referencedColumnName="id", onDelete="SET NULL")
      */
-    private $creation_user_id;
+    private $creationUserId;
 
     /**
      * @var User
      *
+     * @ORM\Column(name="modification_user_id")
      * @ORM\ManyToOne(targetEntity="Core\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="modification_user_id", referencedColumnName="id", onDelete="SET NULL")
      */
-    private $modification_user_id;
+    private $modificationUserId;
 
     /**
      * @Gedmo\Slug(fields={"title"})
@@ -160,43 +163,23 @@ class PackageOption {
     }
 
     /**
-     * Set datetime_event
-     *
-     * @param datetime $datetimeEvent
-     */
-    public function setDatetimeEvent($datetimeEvent)
-    {
-        $this->datetime_event = $datetimeEvent;
-    }
-
-    /**
-     * Get datetime_event
-     *
-     * @return datetime 
-     */
-    public function getDatetimeEvent()
-    {
-        return $this->datetime_event;
-    }
-
-    /**
-     * Set is_published
+     * Set isPublished
      *
      * @param boolean $isPublished
      */
     public function setIsPublished($isPublished)
     {
-        $this->is_published = $isPublished;
+        $this->isPublished = $isPublished;
     }
 
     /**
-     * Get is_published
+     * Get isPublished
      *
      * @return boolean 
      */
     public function getIsPublished()
     {
-        return $this->is_published;
+        return $this->isPublished;
     }
 
     /**
@@ -260,43 +243,43 @@ class PackageOption {
     }
 
     /**
-     * Set creation_user_id
+     * Set creationUserId
      *
      * @param Core\UserBundle\Entity\User $creationUserId
      */
     public function setCreationUserId(\Core\UserBundle\Entity\User $creationUserId)
     {
-        $this->creation_user_id = $creationUserId;
+        $this->creationUserId = $creationUserId;
     }
 
     /**
-     * Get creation_user_id
+     * Get creationUserId
      *
      * @return Core\UserBundle\Entity\User 
      */
     public function getCreationUserId()
     {
-        return $this->creation_user_id;
+        return $this->creationUserId;
     }
 
     /**
-     * Set modification_user_id
+     * Set modificationUserId
      *
      * @param Core\UserBundle\Entity\User $modificationUserId
      */
     public function setModificationUserId(\Core\UserBundle\Entity\User $modificationUserId)
     {
-        $this->modification_user_id = $modificationUserId;
+        $this->modificationUserId = $modificationUserId;
     }
 
     /**
-     * Get modification_user_id
+     * Get modificationUserId
      *
      * @return Core\UserBundle\Entity\User 
      */
     public function getModificationUserId()
     {
-        return $this->modification_user_id;
+        return $this->modificationUserId;
     }
 
     /**

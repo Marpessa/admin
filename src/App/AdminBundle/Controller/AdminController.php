@@ -7,11 +7,15 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Pagerfanta\Pagerfanta;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
 use JavierEguiluz\Bundle\EasyAdminBundle\Event\EasyAdminEvents;
 use JavierEguiluz\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
 
 class AdminController extends BaseAdminController
 {
+    protected $part_package_slug;
+
 	/**
      * @Route("/", name="admin")
      */
@@ -26,10 +30,54 @@ class AdminController extends BaseAdminController
         // don't forget to add this line to serve the regular backend pages
         return parent::indexAction($request);
     }
-    
+
+    protected function initialize(Request $request)
+    {
+        $this->part_package_slug = $request->query->get('part_package_slug');
+
+        return parent::initialize($request);
+    }
+
     protected function listAction()
     {
         return parent::listAction();
+    }
+
+    /**
+     * Performs a database query to get all the records related to the given
+     * entity. It supports pagination and field sorting.
+     *
+     * @param string      $entityClass
+     * @param int         $page
+     * @param int         $maxPerPage
+     * @param string|null $sortField
+     * @param string|null $sortDirection
+     *
+     * @return Pagerfanta The paginated query results
+     */
+    protected function findAll($entityClass, $page = 1, $maxPerPage = 15, $sortField = null, $sortDirection = null)
+    {
+        $query = $this->em->createQueryBuilder()
+                      ->select('entity')
+                      ->from($entityClass, 'entity')
+                      ->innerJoin('entity.part_package_id', 'part_package')
+                      ->where('part_package.slug = :partPackageSlug')
+                      ->setParameter('partPackageSlug', $this->part_package_slug)
+        ;
+
+        if (null !== $sortField) {
+            if (empty($sortDirection) || !in_array(strtoupper($sortDirection), array('ASC', 'DESC'))) {
+                $sortDirection = 'DESC';
+            }
+
+            $query->orderBy('entity.'.$sortField, $sortDirection);
+        }
+
+        $paginator = new Pagerfanta(new DoctrineORMAdapter($query, false));
+        $paginator->setMaxPerPage($maxPerPage);
+        $paginator->setCurrentPage($page);
+
+        return $paginator;
     }
 
     public function dashboardAction(Request $request)

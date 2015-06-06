@@ -34,18 +34,20 @@ class Domain {
     /**
      * @var User
      *
+     * @ORM\Column(name="creation_user_id")
      * @ORM\ManyToOne(targetEntity="Core\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="creation_user_id", referencedColumnName="id", onDelete="SET NULL")
      */
-    private $creation_user_id;
+    private $creationUserId;
 
     /**
      * @var User
      *
+     * @ORM\Column(name="modification_user_id")
      * @ORM\ManyToOne(targetEntity="Core\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="modification_user_id", referencedColumnName="id", onDelete="SET NULL")
      */
-    private $modification_user_id;
+    private $modificationUserId;
 
     /**
      * @Gedmo\Slug(fields={"url"})
@@ -176,43 +178,43 @@ class Domain {
     }
 
     /**
-     * Set creation_user_id
+     * Set creationUserId
      *
      * @param Core\UserBundle\Entity\User $creationUserId
      */
     public function setCreationUserId(\Core\UserBundle\Entity\User $creationUserId)
     {
-        $this->creation_user_id = $creationUserId;
+        $this->creationUserId = $creationUserId;
     }
 
     /**
-     * Get creation_user_id
+     * Get creationUserId
      *
      * @return Core\UserBundle\Entity\User 
      */
     public function getCreationUserId()
     {
-        return $this->creation_user_id;
+        return $this->creationUserId;
     }
 
     /**
-     * Set modification_user_id
+     * Set modificationUserId
      *
      * @param Core\UserBundle\Entity\User $modificationUserId
      */
     public function setModificationUserId(\Core\UserBundle\Entity\User $modificationUserId)
     {
-        $this->modification_user_id = $modificationUserId;
+        $this->modificationUserId = $modificationUserId;
     }
 
     /**
-     * Get modification_user_id
+     * Get modificationUserId
      *
      * @return Core\UserBundle\Entity\User 
      */
     public function getModificationUserId()
     {
-        return $this->modification_user_id;
+        return $this->modificationUserId;
     }
 
 }

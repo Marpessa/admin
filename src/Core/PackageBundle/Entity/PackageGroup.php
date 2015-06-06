@@ -58,18 +58,20 @@ class PackageGroup {
     /**
      * @var User
      *
-    * @ORM\ManyToOne(targetEntity="Core\UserBundle\Entity\User")
+     * @ORM\Column(name="creation_user_id")
+     * @ORM\ManyToOne(targetEntity="Core\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="creation_user_id", referencedColumnName="id", onDelete="SET NULL")
      */
-    private $creation_user_id;
+    private $creationUserId;
 
     /**
      * @var User
      *
+     * @ORM\Column(name="modification_user_id")
      * @ORM\ManyToOne(targetEntity="Core\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="modification_user_id", referencedColumnName="id", onDelete="SET NULL")
      */
-    private $modification_user_id;
+    private $modificationUserId;
 
     /**
      * @var datetime $createdAt
@@ -88,10 +90,10 @@ class PackageGroup {
     private $updatedAt;
 
     /**
-     * @Gedmo\SortablePosition
      * @ORM\Column(name="default_position", type="integer")
+     * @Gedmo\SortablePosition
      */
-    private $default_position;
+    private $defaultPosition;
 
 
     public function __toString()
@@ -235,72 +237,49 @@ class PackageGroup {
     }
 
     /**
-     * Set creation_user_id
+     * Set creationUserId
      *
      * @param \Core\UserBundle\Entity\User $creationUserId
      * @return PackageGroup
      */
     public function setCreationUserId(\Core\UserBundle\Entity\User $creationUserId = null)
     {
-        $this->creation_user_id = $creationUserId;
+        $this->creationUserId = $creationUserId;
 
         return $this;
     }
 
     /**
-     * Get creation_user_id
+     * Get creationUserId
      *
      * @return \Core\UserBundle\Entity\User 
      */
     public function getCreationUserId()
     {
-        return $this->creation_user_id;
+        return $this->creationUserId;
     }
 
     /**
-     * Set modification_user_id
+     * Set modificationUserId
      *
      * @param \Core\UserBundle\Entity\User $modificationUserId
      * @return PackageGroup
      */
     public function setModificationUserId(\Core\UserBundle\Entity\User $modificationUserId = null)
     {
-        $this->modification_user_id = $modificationUserId;
+        $this->modificationUserId = $modificationUserId;
 
         return $this;
     }
 
     /**
-     * Get modification_user_id
+     * Get modificationUserId
      *
      * @return \Core\UserBundle\Entity\User 
      */
     public function getModificationUserId()
     {
-        return $this->modification_user_id;
-    }
-
-    /**
-     * Set part_id
-     *
-     * @param \Core\PartBundle\Entity\Part $partId
-     * @return PackageGroup
-     */
-    public function setPartId(\Core\PartBundle\Entity\Part $partId = null)
-    {
-        $this->part_id = $partId;
-
-        return $this;
-    }
-
-    /**
-     * Get part_id
-     *
-     * @return \Core\PartBundle\Entity\Part 
-     */
-    public function getPartId()
-    {
-        return $this->part_id;
+        return $this->modificationUserId;
     }
 
     /**
@@ -327,25 +306,25 @@ class PackageGroup {
     }
 
     /**
-     * Set default_position
+     * Set defaultPosition
      *
-     * @param integer $default_position
+     * @param integer $defaultPosition
      * @return PackageGroup
      */
-    public function setDefaultPosition($default_position)
+    public function setDefaultPosition($defaultPosition)
     {
-        $this->default_position = $default_position;
+        $this->defaultPosition = $defaultPosition;
 
         return $this;
     }
 
     /**
-     * Get default_position
+     * Get defaultPosition
      *
      * @return integer 
      */
     public function getDefaultPosition()
     {
-        return $this->default_position;
+        return $this->defaultPosition;
     }
 }

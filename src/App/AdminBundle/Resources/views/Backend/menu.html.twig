@@ -1,6 +1,6 @@
 {% for part_package in part_package_list %}
-    <li class="{{ part_package.slug|lower == app.request.get('entity')|lower ? 'active' : '' }}">
-        <a href="{{ path('admin', { entity: part_package.package_entity_name, slug: part_package.slug, action: 'list', view: 'list' }) }}">
+    <li class="{{ part_package.slug|lower == app.request.get('part_package_slug')|lower ? 'active' : part_package.slug }}">
+        <a href="{{ path('admin', { entity: part_package.package_entity_name, part_package_slug: part_package.slug, action: 'list', view: 'list' }) }}">
             {{- part_package.title|trans -}}
         </a>
     </li>

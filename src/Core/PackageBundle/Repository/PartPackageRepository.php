@@ -15,15 +15,15 @@ class PartPackageRepository extends EntityRepository
               ->addSelect('package.entityName AS package_entity_name')
               ->addSelect('package_group.id AS package_group_id, package_group.icon AS package_group_icon, package_group.title AS package_group_title')
 
-              ->innerJoin('part_package.part_id', 'part')
-              ->innerJoin('part_package.package_id', 'package')
-              ->innerJoin('package.package_group_id', 'package_group')
+              ->innerJoin('part_package.partId', 'part')
+              ->innerJoin('part_package.packageId', 'package')
+              ->innerJoin('package.packageGroupId', 'package_group')
 
               ->where('part.slug = :partSlug')
-              ->andWhere('package.is_published = 1')
-              ->andWhere('part_package.is_published = 1')
+              ->andWhere('package.isPublished = 1')
+              ->andWhere('part_package.isPublished = 1')
 
-              ->orderBy('package_group.default_position', 'ASC')
+              ->orderBy('package_group.defaultPosition', 'ASC')
               ->addOrderBy('part_package.position', 'ASC')
 
               ->setParameter('partSlug', $partSlug)

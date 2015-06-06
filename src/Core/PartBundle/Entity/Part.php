@@ -53,23 +53,25 @@ class Part {
      * @ORM\Column(type="boolean")
      * @Assert\NotBlank()
      */
-    private $is_published;
+    private $isPublished;
 
     /**
      * @var User
      *
+     * @ORM\Column(name="creation_user_id")
      * @ORM\ManyToOne(targetEntity="Core\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="creation_user_id", referencedColumnName="id", onDelete="SET NULL")
      */
-    private $creation_user_id;
+    private $creationUserId;
 
     /**
      * @var User
      *
+     * @ORM\Column(name="modification_user_id")
      * @ORM\ManyToOne(targetEntity="Core\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="modification_user_id", referencedColumnName="id", onDelete="SET NULL")
      */
-    private $modification_user_id;
+    private $modificationUserId;
 
     /**
      * @Gedmo\Slug(fields={"title"})
@@ -96,18 +98,20 @@ class Part {
     /**
      * @var Domain
      *
+     * @ORM\Column(name="domain_id")
      * @ORM\ManyToOne(targetEntity="Core\DomainBundle\Entity\Domain")
      * @ORM\JoinColumn(name="domain_id", referencedColumnName="id", onDelete="SET NULL")
      */
-    private $domain_id;
+    private $domainId;
 
     /**
      * @var Template
      *
+     * @ORM\Column(name="template_id")
      * @ORM\ManyToOne(targetEntity="Base\TemplateBundle\Entity\Template")
      * @ORM\JoinColumn(name="template_id", referencedColumnName="id", onDelete="SET NULL")
      */
-    private $template_id;
+    private $templateId;
 
 
     public function __construct()
@@ -201,43 +205,23 @@ class Part {
     }
 
     /**
-     * Set datetime_event
-     *
-     * @param datetime $datetimeEvent
-     */
-    public function setDatetimeEvent($datetimeEvent)
-    {
-        $this->datetime_event = $datetimeEvent;
-    }
-
-    /**
-     * Get datetime_event
-     *
-     * @return datetime 
-     */
-    public function getDatetimeEvent()
-    {
-        return $this->datetime_event;
-    }
-
-    /**
-     * Set is_published
+     * Set isPublished
      *
      * @param boolean $isPublished
      */
     public function setIsPublished($isPublished)
     {
-        $this->is_published = $isPublished;
+        $this->isPublished = $isPublished;
     }
 
     /**
-     * Get is_published
+     * Get isPublished
      *
      * @return boolean 
      */
     public function getIsPublished()
     {
-        return $this->is_published;
+        return $this->isPublished;
     }
 
     /**
@@ -301,43 +285,43 @@ class Part {
     }
 
     /**
-     * Set creation_user_id
+     * Set creationUserId
      *
      * @param Core\UserBundle\Entity\User $creationUserId
      */
     public function setCreationUserId(\Core\UserBundle\Entity\User $creationUserId)
     {
-        $this->creation_user_id = $creationUserId;
+        $this->creationUserId = $creationUserId;
     }
 
     /**
-     * Get creation_user_id
+     * Get creationUserId
      *
      * @return Core\UserBundle\Entity\User 
      */
     public function getCreationUserId()
     {
-        return $this->creation_user_id;
+        return $this->creationUserId;
     }
 
     /**
-     * Set modification_user_id
+     * Set modificationUserId
      *
      * @param Core\UserBundle\Entity\User $modificationUserId
      */
     public function setModificationUserId(\Core\UserBundle\Entity\User $modificationUserId)
     {
-        $this->modification_user_id = $modificationUserId;
+        $this->modificationUserId = $modificationUserId;
     }
 
     /**
-     * Get modification_user_id
+     * Get modificationUserId
      *
      * @return Core\UserBundle\Entity\User 
      */
     public function getModificationUserId()
     {
-        return $this->modification_user_id;
+        return $this->modificationUserId;
     }
 
     /**
@@ -364,48 +348,48 @@ class Part {
     }
 
     /**
-     * Set domain_id
+     * Set domainId
      *
      * @param \Core\DomainBundle\Entity\Domain $domainId
      * @return Part
      */
     public function setDomainId(\Core\DomainBundle\Entity\Domain $domainId = null)
     {
-        $this->domain_id = $domainId;
+        $this->domainId = $domainId;
 
         return $this;
     }
 
     /**
-     * Get domain_id
+     * Get domainId
      *
      * @return \Core\DomainBundle\Entity\Domain 
      */
     public function getDomainId()
     {
-        return $this->domain_id;
+        return $this->domainId;
     }
 
     /**
-     * Set template_id
+     * Set templateId
      *
      * @param \Base\TemplateBundle\Entity\Template $templateId
      * @return Part
      */
     public function setTemplateId(\Base\TemplateBundle\Entity\Template $templateId = null)
     {
-        $this->template_id = $templateId;
+        $this->templateId = $templateId;
 
         return $this;
     }
 
     /**
-     * Get template_id
+     * Get templateId
      *
      * @return \Base\TemplateBundle\Entity\Template 
      */
     public function getTemplateId()
     {
-        return $this->template_id;
+        return $this->templateId;
     }
 }

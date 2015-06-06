@@ -11,9 +11,9 @@ class PartRepository extends EntityRepository
                   ->select('p.title, p.slug')
                   ->addSelect('d.id AS d_id')
 
-                  ->innerJoin('p.domain_id', 'd')
+                  ->innerJoin('p.domainId', 'd')
 
-                  ->where('p.is_published = 1')
+                  ->where('p.isPublished = 1')
                   ->andWhere('d.url = :domain')
 
                   ->orderBy('p.title', 'ASC')
@@ -29,7 +29,7 @@ class PartRepository extends EntityRepository
     $q = $this->createQueryBuilder('p')
                   ->select('p.title, p.slug')
 
-                  ->where('p.is_published = 1')
+                  ->where('p.isPublished = 1')
                   ->andWhere('p.slug = :slug')
 
                   ->orderBy('p.title', 'ASC')

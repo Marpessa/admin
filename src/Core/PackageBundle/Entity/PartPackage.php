@@ -22,18 +22,20 @@ class PartPackage {
     /**
      * @var Part
      *
+     * @ORM\Column(name="part_id")
      * @ORM\ManyToOne(targetEntity="Core\PartBundle\Entity\Part")
      * @ORM\JoinColumn(name="part_id", referencedColumnName="id")
      */
-    private $part_id;
+    private $partId;
 
     /**
      * @var Package
      *
+     * @ORM\Column(name="package_id")
      * @ORM\ManyToOne(targetEntity="Core\PackageBundle\Entity\Package")
      * @ORM\JoinColumn(name="package_id", referencedColumnName="id")
      */
-    private $package_id;
+    private $packageId;
 
     /**
      * @ORM\Column(type="string", length=8, nullable=false, options={"default":"1.0.0"})
@@ -66,26 +68,29 @@ class PartPackage {
     private $description;
 
     /**
+     * @ORM\Column(name="is_published")
      * @ORM\Column(type="boolean")
      * @Assert\NotBlank()
      */
-    private $is_published;
+    private $isPublished;
 
     /**
      * @var User
      *
+     * @ORM\Column(name="creation_user_id")
      * @ORM\ManyToOne(targetEntity="Core\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="creation_user_id", referencedColumnName="id", onDelete="SET NULL")
      */
-    private $creation_user_id;
+    private $creationUserId;
 
     /**
      * @var User
      *
+     * @ORM\Column(name="modification_user_id")
      * @ORM\ManyToOne(targetEntity="Core\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="modification_user_id", referencedColumnName="id", onDelete="SET NULL")
      */
-    private $modification_user_id;
+    private $modificationUserId;
 
     /**
      * @Gedmo\Slug(fields={"title"})
@@ -186,26 +191,26 @@ class PartPackage {
     }
 
     /**
-     * Set is_published
+     * Set isPublished
      *
      * @param boolean $isPublished
      * @return PartPackage
      */
     public function setIsPublished($isPublished)
     {
-        $this->is_published = $isPublished;
+        $this->isPublished = $isPublished;
 
         return $this;
     }
 
     /**
-     * Get is_published
+     * Get isPublished
      *
      * @return boolean 
      */
     public function getIsPublished()
     {
-        return $this->is_published;
+        return $this->isPublished;
     }
 
     /**
@@ -301,37 +306,37 @@ class PartPackage {
     }
 
     /**
-     * Set part_id
+     * Set partId
      *
      * @param \Core\PartBundle\Entity\Part $partId
      * @return PartPackage
      */
     public function setPartId(\Core\PartBundle\Entity\Part $partId = null)
     {
-        $this->part_id = $partId;
+        $this->partId = $partId;
 
         return $this;
     }
 
     /**
-     * Get part_id
+     * Get partId
      *
      * @return \Core\PartBundle\Entity\Part 
      */
     public function getPartId()
     {
-        return $this->part_id;
+        return $this->partId;
     }
 
     /**
-     * Set package_id
+     * Set packageId
      *
      * @param \Core\PackageBundle\Entity\Package $packageId
      * @return PartPackage
      */
     public function setPackageId(\Core\PackageBundle\Entity\Package $packageId = null)
     {
-        $this->package_id = $packageId;
+        $this->packageId = $packageId;
 
         return $this;
     }
@@ -343,53 +348,53 @@ class PartPackage {
      */
     public function getPackageId()
     {
-        return $this->package_id;
+        return $this->packageId;
     }
 
     /**
-     * Set creation_user_id
+     * Set creationUserId
      *
      * @param \Core\UserBundle\Entity\User $creationUserId
      * @return PartPackage
      */
     public function setCreationUserId(\Core\UserBundle\Entity\User $creationUserId = null)
     {
-        $this->creation_user_id = $creationUserId;
+        $this->creationUserId = $creationUserId;
 
         return $this;
     }
 
     /**
-     * Get creation_user_id
+     * Get creationUserId
      *
      * @return \Core\UserBundle\Entity\User 
      */
     public function getCreationUserId()
     {
-        return $this->creation_user_id;
+        return $this->creationUserId;
     }
 
     /**
-     * Set modification_user_id
+     * Set modificationUserId
      *
      * @param \Core\UserBundle\Entity\User $modificationUserId
      * @return PartPackage
      */
     public function setModificationUserId(\Core\UserBundle\Entity\User $modificationUserId = null)
     {
-        $this->modification_user_id = $modificationUserId;
+        $this->modificationUserId = $modificationUserId;
 
         return $this;
     }
 
     /**
-     * Get modification_user_id
+     * Get modificationUserId
      *
      * @return \Core\UserBundle\Entity\User 
      */
     public function getModificationUserId()
     {
-        return $this->modification_user_id;
+        return $this->modificationUserId;
     }
 
     /**
