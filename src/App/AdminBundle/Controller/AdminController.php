@@ -140,7 +140,7 @@ class AdminController extends BaseAdminController
 
     private function getPartList( $domain )
     {
-        if ($this->get('security.context')->isGranted('IS_AUTHENTICATED_ANONYMOUSLY')) { // TODO
+        if ($this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) {
             $part_list = $this->getDoctrine()
                               ->getRepository('CorePartBundle:Part')
                               ->findAll()
