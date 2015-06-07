@@ -249,6 +249,28 @@ class LoadPartPackageData extends AbstractFixture implements OrderedFixtureInter
                 $partPackage20[$i]->setModificationUserId( $this->getReference('user1') );
                 $partPackage20[$i]->setPackageId( $this->getReference('package19') );
                 $partPackage20[$i]->setPartId( $this->getReference( 'part' . $i ) );
+
+                $partPackage24[$i] = new PartPackage();
+                $partPackage24[$i]->setTitle( 'Gestion des utilisateurs' );
+                $partPackage24[$i]->setDescription( 'Permet de gérer les utilisateurs' );
+                $partPackage24[$i]->setVersion( '0.0.1' );
+                $partPackage24[$i]->setIsPublished( 1 );
+                $partPackage24[$i]->setPosition( 23 );
+                $partPackage24[$i]->setCreationUserId( $this->getReference('user1') );
+                $partPackage24[$i]->setModificationUserId( $this->getReference('user1') );
+                $partPackage24[$i]->setPackageId( $this->getReference('package9') );
+                $partPackage24[$i]->setPartId( $this->getReference( 'part' . $i ) );
+
+                $partPackage25[$i] = new PartPackage();
+                $partPackage25[$i]->setTitle( 'Gestion des groupes' );
+                $partPackage25[$i]->setDescription( 'Permet de gérer les groupes d\'utilisateurs' );
+                $partPackage25[$i]->setVersion( '0.0.1' );
+                $partPackage25[$i]->setIsPublished( 1 );
+                $partPackage25[$i]->setPosition( 22 );
+                $partPackage25[$i]->setCreationUserId( $this->getReference('user1') );
+                $partPackage25[$i]->setModificationUserId( $this->getReference('user1') );
+                $partPackage25[$i]->setPackageId( $this->getReference('package8') );
+                $partPackage25[$i]->setPartId( $this->getReference( 'part' . $i ) );
             }
 
             if( in_array( $i, array(0, 1, 2, 3, 4) ) ) {
@@ -297,6 +319,8 @@ class LoadPartPackageData extends AbstractFixture implements OrderedFixtureInter
             if( !empty( $partPackage20[$i] ) ) { $manager->persist($partPackage20[$i]); }
             if( !empty( $partPackage22[$i] ) ) { $manager->persist($partPackage22[$i]); }
             if( !empty( $partPackage23[$i] ) ) { $manager->persist($partPackage23[$i]); }
+            if( !empty( $partPackage24[$i] ) ) { $manager->persist($partPackage24[$i]); }
+            if( !empty( $partPackage25[$i] ) ) { $manager->persist($partPackage25[$i]); }
         }
 
         $manager->flush();

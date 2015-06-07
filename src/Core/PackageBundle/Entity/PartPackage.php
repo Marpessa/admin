@@ -115,7 +115,12 @@ class PartPackage {
      * @ORM\Column(name="position", type="integer")
      */
     private $position;
+    
 
+    public function __toString()
+    {
+        return $this->title;
+    }
 
     /**
      * Set version

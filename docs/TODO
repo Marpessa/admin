@@ -1,10 +1,13 @@
 TODO :
 
+Implémenter Ace Admin Template
+Gestion des médias
 Gestion du nom de domaine associé au login // AdminController
 Gérer la sécurité -> Ajouter condition dans les requêtes sur le Part et user
+Ajout d'un paquet pour gérer l'emailing
 
-Gérer l'administration
 
+// http://www.majesteel.fr/fr/documentation/developpeurs/majes-cmsbundle (Regarder comment cela fonctionne au niveau des blocs/pages)
 -------------------
 Gérer la partie administration pour configurer le template, les blocs et la couleur de base de l'administration en fonction du site déployé
 
@@ -18,10 +21,6 @@ Gérer l'ordre des part package dans un group part package (comme catégories so
 
 ------------------
 Gérer quelques commandes symfony automatiquement à partir de l'interface (nouveau paquet, getter/setter, etc...)
-
------
-Ajouter les paquets Librairie et media dans la partie administration
-
 
 DONE :
 Gérer le changement de site dans le select

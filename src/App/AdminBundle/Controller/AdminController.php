@@ -58,13 +58,24 @@ class AdminController extends BaseAdminController
      */
     protected function findAll($entityClass, $page = 1, $maxPerPage = 15, $sortField = null, $sortDirection = null)
     {
-        $query = $this->em->createQueryBuilder()
-                      ->select('entity')
-                      ->from($entityClass, 'entity')
-                      ->innerJoin('entity.part_package_id', 'part_package')
-                      ->where('part_package.slug = :partPackageSlug')
-                      ->setParameter('partPackageSlug', $this->part_package_slug)
-        ;
+        // Current Part Slug
+        $session = $this->get('session');
+        $current_part_slug = $session->get('current_part_slug');
+
+        if( $current_part_slug == "administration" ) {
+
+            return parent::findAll( $entityClass, $page, $maxPerPage, $sortField, $sortDirection );
+
+        } else {
+
+            $query = $this->em->createQueryBuilder()
+                          ->select('entity')
+                          ->from($entityClass, 'entity')
+                          ->innerJoin('entity.partPackageId', 'part_package')
+                          ->where('part_package.slug = :partPackageSlug')
+                          ->setParameter('partPackageSlug', $this->part_package_slug)
+            ;
+        }
 
         if (null !== $sortField) {
             if (empty($sortDirection) || !in_array(strtoupper($sortDirection), array('ASC', 'DESC'))) {
@@ -117,7 +128,8 @@ class AdminController extends BaseAdminController
                                       ->findByPart( $current_part_slug )
                                       ->getArrayResult();
 
-            return $this->render( 'AppAdminBundle:Backend:menu.html.twig', array( 'part_package_list' => $part_package_list ) );
+            return $this->render( 'AppAdminBundle:Backend:menu.html.twig', array( 'current_part_package_slug' => $request->query->get('part_package_slug'),
+                                                                                  'part_package_list' => $part_package_list ) );
         } else {
           throw new NotFoundHttpException("Part not found - Please contact administrator");
         }

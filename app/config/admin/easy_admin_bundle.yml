@@ -39,7 +39,6 @@ easy_admin:
                     - { property: 'title', type: 'text', label: 'Titre' }
                     - { property: 'isPublished', type: 'toggle', label: 'Publié ?' }
                     - { property: 'domainId', type: 'text', label: 'Domaine' }
-                    - { property: 'templateId', type: 'text', label: 'Template' }
                     - { property: 'version', type: 'text', label: 'Version' }
         Package:
             label: 'Paquets'
