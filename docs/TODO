@@ -1,8 +1,11 @@
 TODO :
 
+Gestion du login/mot de passe
+Gestion du nom de domaine associé au login // AdminController
+Gestion de la sécurité (admin) // AdminController
+Gérer la sécurité -> Ajouter condition dans les requêtes sur le Part et user
+
 Gérer l'administration
-Gérer le changement de site dans le select
-Gérer la sécurité -> Ajouter condition dans les requêtes sur le Paet et user
 
 -------------------
 Gérer la partie administration pour configurer le template, les blocs et la couleur de base de l'administration en fonction du site déployé
@@ -23,3 +26,4 @@ Ajouter les paquets Librairie et media dans la partie administration
 
 
 DONE :
+Gérer le changement de site dans le select

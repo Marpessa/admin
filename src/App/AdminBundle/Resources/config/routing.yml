@@ -6,3 +6,7 @@ easy_admin_bundle:
 admin_dashboard:
     defaults: { _controller: AppAdminBundle:Admin:dashboard }
     pattern:  /dashboard/
+
+change_part:
+    defaults: { _controller: AppAdminBundle:Admin:changePart }
+    pattern:  /change_part/

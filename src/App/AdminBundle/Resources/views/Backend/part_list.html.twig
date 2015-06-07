@@ -1,5 +1,5 @@
-<select class="form-control">
+<select id="select_part_list" class="form-control">
 	{% for part in part_list %}
-		<option value="{{ part.slug }}">{{ part.title }}</option>
+		<option value="{{ part.slug }}" data-slug="{{ part.slug }}" {{ current_part_slug == part.slug ? 'selected=selected' : '' }}>{{ part.title }}</option>
 	{% endfor %}
 </select>

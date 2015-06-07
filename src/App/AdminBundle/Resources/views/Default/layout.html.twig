@@ -12,3 +12,14 @@
 {% block navigation_items %}
 	{{ render(controller("AppAdminBundle:Admin:menu", {}), {}) }}
 {% endblock %}
+
+{% block body_javascript %}
+	{{ parent() }}
+    <script async="async">
+    	var url = '{{ path("change_part", { part_slug: "_slug_" }) }}'; 
+    	$('#select_part_list').change( function() {
+    		url = url.replace( "_slug_", $(this).find('option:selected').attr('data-slug') );
+    		window.location.href = url;
+    	});
+    </script>
+{% endblock body_javascript %}

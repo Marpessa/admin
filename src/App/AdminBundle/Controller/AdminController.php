@@ -6,6 +6,7 @@ namespace App\AdminBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\EventDispatcher\GenericEvent;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Pagerfanta\Pagerfanta;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
@@ -80,11 +81,6 @@ class AdminController extends BaseAdminController
         return $paginator;
     }
 
-    public function dashboardAction(Request $request)
-    {
-    	return $this->render('AppAdminBundle:Backend:dashboard.html.twig', array());
-    }
-
     public function partListAction(Request $request)
     {
         $domain = $_SERVER["SERVER_NAME"];
@@ -93,18 +89,16 @@ class AdminController extends BaseAdminController
         $part_list = $this->getPartList( $domain );
 
         // Current Part Slug
-        $current_part_slug = NULL;
-
         $session = $this->get('session');
+        $current_part_slug = $session->get('current_part_slug');
 
-        if( !empty( $settings["part_slug"] ) ) {
-          $current_part_slug = $settings["part_slug"];
-        } elseif( !empty( $part_list[0]['slug'] ) ) {
-          $current_part_slug = $part_list[0]['slug'];
+        if( empty( $current_part_slug ) && !empty( $part_list[0]['slug'] ) ) {
+            $current_part_slug = $part_list[0]['slug'];
+            $session->set('current_part_slug', $current_part_slug);
         }
-        $session->set('current_part_slug', $current_part_slug);
 
-        return $this->render( 'AppAdminBundle:Backend:part_list.html.twig', array( 'part_list' => $part_list ) );
+        return $this->render( 'AppAdminBundle:Backend:part_list.html.twig', array( 'current_part_slug' => $current_part_slug,
+                                                                                   'part_list' => $part_list ) );
     }
 
     public function menuAction(Request $request)
@@ -129,6 +123,20 @@ class AdminController extends BaseAdminController
         }
     }
 
+    public function changePartAction(Request $request)
+    {
+        $current_part_slug = $request->query->get('part_slug');
+
+        $session = $this->get('session');
+        $session->set('current_part_slug', $current_part_slug);
+
+        return new RedirectResponse($this->container->get('router')->generate('admin_dashboard'));
+    }
+
+    public function dashboardAction(Request $request)
+    {
+        return $this->render('AppAdminBundle:Backend:dashboard.html.twig', array());
+    }
 
     private function getPartList( $domain )
     {
