@@ -21,7 +21,7 @@ class LoadTemplateData extends AbstractFixture implements OrderedFixtureInterfac
         $template1->setDescription( "Template responsive gratuit" );
         $template1->setCreationUserId( $this->getReference('user1') );
         $template1->setModificationUserId( $this->getReference('user1') );
-        //$template1->setPartPackageId( $this->getReference('partPackage-template1') );
+        $template1->setPartPackageId( $this->getReference('partPackage-template1') );
 
         // Template 2
         $template2 = new Template();
@@ -30,7 +30,7 @@ class LoadTemplateData extends AbstractFixture implements OrderedFixtureInterfac
         $template2->setDescription( "Template responsive payant" );
         $template2->setCreationUserId( $this->getReference('user1') );
         $template2->setModificationUserId( $this->getReference('user1') );
-        //$template2->setPartPackageId( $this->getReference('partPackage-template1') );
+        $template2->setPartPackageId( $this->getReference('partPackage-template1') );
 
         // Template 3
         $template3 = new Template();
@@ -39,7 +39,7 @@ class LoadTemplateData extends AbstractFixture implements OrderedFixtureInterfac
         $template3->setDescription( "Demandez un template sur mesure" );
         $template3->setCreationUserId( $this->getReference('user1') );
         $template3->setModificationUserId( $this->getReference('user1') );
-        //$template3->setPartPackageId( $this->getReference('partPackage-template1') );
+        $template3->setPartPackageId( $this->getReference('partPackage-template1') );
 
         $manager->persist($template1);
         $manager->persist($template2);
@@ -57,7 +57,7 @@ class LoadTemplateData extends AbstractFixture implements OrderedFixtureInterfac
      */
     public function getOrder()
     {
-        return 2;
+        return 8;
     }
 }
 

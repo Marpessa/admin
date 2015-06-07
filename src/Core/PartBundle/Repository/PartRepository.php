@@ -6,6 +6,19 @@ use Doctrine\ORM\EntityRepository;
 
 class PartRepository extends EntityRepository
 {
+    public function findAll() {
+        $q = $this->createQueryBuilder('p')
+                  ->select('p.title, p.slug')
+
+                  ->where('p.isPublished = 1')
+
+                  ->orderBy('p.title', 'ASC')
+
+                  ->getQuery();
+
+        return $q;
+    }
+
 	public function findByDomain( $domain ) {
 		$q = $this->createQueryBuilder('p')
                   ->select('p.title, p.slug')

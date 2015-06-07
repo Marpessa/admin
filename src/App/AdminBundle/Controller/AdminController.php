@@ -88,7 +88,7 @@ class AdminController extends BaseAdminController
     public function partListAction(Request $request)
     {
         $domain = $_SERVER["SERVER_NAME"];
-        $domain = 'admin.cloudwebsport.com'; // Temp
+        $domain = 'admin.cloudwebsport.com'; // TODO
 
         $part_list = $this->getPartList( $domain );
 
@@ -132,10 +132,17 @@ class AdminController extends BaseAdminController
 
     private function getPartList( $domain )
     {
-        $part_list = $this->getDoctrine()
-                          ->getRepository('CorePartBundle:Part')
-                          ->findByDomain( $domain )
-                          ->getArrayResult();
+        if ($this->get('security.context')->isGranted('IS_AUTHENTICATED_ANONYMOUSLY')) { // TODO
+            $part_list = $this->getDoctrine()
+                              ->getRepository('CorePartBundle:Part')
+                              ->findAll()
+                              ->getArrayResult();
+        } else {
+            $part_list = $this->getDoctrine()
+                              ->getRepository('CorePartBundle:Part')
+                              ->findByDomain( $domain )
+                              ->getArrayResult();
+        }
 
         return $part_list;
     }

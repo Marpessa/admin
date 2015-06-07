@@ -58,7 +58,6 @@ class Part {
     /**
      * @var User
      *
-     * @ORM\Column(name="creation_user_id")
      * @ORM\ManyToOne(targetEntity="Core\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="creation_user_id", referencedColumnName="id", onDelete="SET NULL")
      */
@@ -67,7 +66,6 @@ class Part {
     /**
      * @var User
      *
-     * @ORM\Column(name="modification_user_id")
      * @ORM\ManyToOne(targetEntity="Core\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="modification_user_id", referencedColumnName="id", onDelete="SET NULL")
      */
@@ -98,20 +96,10 @@ class Part {
     /**
      * @var Domain
      *
-     * @ORM\Column(name="domain_id")
      * @ORM\ManyToOne(targetEntity="Core\DomainBundle\Entity\Domain")
      * @ORM\JoinColumn(name="domain_id", referencedColumnName="id", onDelete="SET NULL")
      */
     private $domainId;
-
-    /**
-     * @var Template
-     *
-     * @ORM\Column(name="template_id")
-     * @ORM\ManyToOne(targetEntity="Base\TemplateBundle\Entity\Template")
-     * @ORM\JoinColumn(name="template_id", referencedColumnName="id", onDelete="SET NULL")
-     */
-    private $templateId;
 
 
     public function __construct()
@@ -368,28 +356,5 @@ class Part {
     public function getDomainId()
     {
         return $this->domainId;
-    }
-
-    /**
-     * Set templateId
-     *
-     * @param \Base\TemplateBundle\Entity\Template $templateId
-     * @return Part
-     */
-    public function setTemplateId(\Base\TemplateBundle\Entity\Template $templateId = null)
-    {
-        $this->templateId = $templateId;
-
-        return $this;
-    }
-
-    /**
-     * Get templateId
-     *
-     * @return \Base\TemplateBundle\Entity\Template 
-     */
-    public function getTemplateId()
-    {
-        return $this->templateId;
     }
 }

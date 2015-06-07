@@ -22,7 +22,7 @@ class LoadPartData extends AbstractFixture implements OrderedFixtureInterface
         $part0->setVersion( '0.0.1' );
         $part0->setCreationUserId( $this->getReference('user1') );
         $part0->setModificationUserId( $this->getReference('user1') );
-        // $part0->setDomainId( $this->getReference('domain1') );
+        $part0->setDomainId( $this->getReference('domain1') );
         // $part0->setTemplateId( $this->getReference('template1') );
 
         // Part 1
@@ -33,8 +33,8 @@ class LoadPartData extends AbstractFixture implements OrderedFixtureInterface
         $part1->setVersion( '1.0.0' );
         $part1->setCreationUserId( $this->getReference('user1') );
         $part1->setModificationUserId( $this->getReference('user1') );
-        $part1->setDomainId( $this->getReference('domain1') );
-        $part1->setTemplateId( $this->getReference('template1') );
+        $part1->setDomainId( $this->getReference('domain2') );
+        //$part1->setTemplateId( $this->getReference('template1') );
 
         // Part 2
         $part2 = new Part();
@@ -44,8 +44,8 @@ class LoadPartData extends AbstractFixture implements OrderedFixtureInterface
         $part2->setVersion( '0.0.1' );
         $part2->setCreationUserId( $this->getReference('user1') );
         $part2->setModificationUserId( $this->getReference('user1') );
-        $part2->setDomainId( $this->getReference('domain1') );
-        $part2->setTemplateId( $this->getReference('template1') );
+        $part2->setDomainId( $this->getReference('domain2') );
+        //$part2->setTemplateId( $this->getReference('template1') );
 
         // Part 3
         $part3 = new Part();
@@ -56,7 +56,7 @@ class LoadPartData extends AbstractFixture implements OrderedFixtureInterface
         $part3->setCreationUserId( $this->getReference('user1') );
         $part3->setModificationUserId( $this->getReference('user1') );
         $part3->setDomainId( $this->getReference('domain2') );
-        $part3->setTemplateId( $this->getReference('template1') );
+        //$part3->setTemplateId( $this->getReference('template1') );
 
         // Part 4
         $part4 = new Part();
@@ -66,8 +66,8 @@ class LoadPartData extends AbstractFixture implements OrderedFixtureInterface
         $part4->setVersion( '0.0.1' );
         $part4->setCreationUserId( $this->getReference('user1') );
         $part4->setModificationUserId( $this->getReference('user1') );
-        $part4->setDomainId( $this->getReference('domain1') );
-        $part4->setTemplateId( $this->getReference('template1') );
+        $part4->setDomainId( $this->getReference('domain2') );
+        //$part4->setTemplateId( $this->getReference('template1') );
 
         // Part 5
         $part5 = new Part();
@@ -77,8 +77,8 @@ class LoadPartData extends AbstractFixture implements OrderedFixtureInterface
         $part5->setVersion( '0.0.1' );
         $part5->setCreationUserId( $this->getReference('user1') );
         $part5->setModificationUserId( $this->getReference('user1') );
-        $part5->setDomainId( $this->getReference('domain1') );
-        $part5->setTemplateId( $this->getReference('template1') );
+        $part5->setDomainId( $this->getReference('domain2') );
+        //$part5->setTemplateId( $this->getReference('template1') );
 
         $manager->persist($part0);
         $manager->persist($part1);

@@ -22,7 +22,6 @@ class PartPackage {
     /**
      * @var Part
      *
-     * @ORM\Column(name="part_id")
      * @ORM\ManyToOne(targetEntity="Core\PartBundle\Entity\Part")
      * @ORM\JoinColumn(name="part_id", referencedColumnName="id")
      */
@@ -31,7 +30,6 @@ class PartPackage {
     /**
      * @var Package
      *
-     * @ORM\Column(name="package_id")
      * @ORM\ManyToOne(targetEntity="Core\PackageBundle\Entity\Package")
      * @ORM\JoinColumn(name="package_id", referencedColumnName="id")
      */
@@ -77,7 +75,6 @@ class PartPackage {
     /**
      * @var User
      *
-     * @ORM\Column(name="creation_user_id")
      * @ORM\ManyToOne(targetEntity="Core\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="creation_user_id", referencedColumnName="id", onDelete="SET NULL")
      */
@@ -86,7 +83,6 @@ class PartPackage {
     /**
      * @var User
      *
-     * @ORM\Column(name="modification_user_id")
      * @ORM\ManyToOne(targetEntity="Core\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="modification_user_id", referencedColumnName="id", onDelete="SET NULL")
      */

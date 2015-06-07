@@ -59,7 +59,6 @@ class Package {
     /**
      * @var User
      *
-     * @ORM\Column(name="creation_user_id")
      * @ORM\ManyToOne(targetEntity="Core\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="creation_user_id", referencedColumnName="id", onDelete="SET NULL")
      */
@@ -68,7 +67,6 @@ class Package {
     /**
      * @var User
      *
-     * @ORM\Column(name="modification_user_id")
      * @ORM\ManyToOne(targetEntity="Core\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="modification_user_id", referencedColumnName="id", onDelete="SET NULL")
      */
@@ -105,14 +103,12 @@ class Package {
     /**
      * @var PackageGroup
      *
-     * @ORM\Column(name="package_group_id")
      * @ORM\ManyToOne(targetEntity="Core\PackageBundle\Entity\PackageGroup")
      * @ORM\JoinColumn(name="package_group_id", referencedColumnName="id", onDelete="SET NULL")
      */
     private $packageGroupId;
 
     /**
-     * @ORM\Column(name="options")
      * @ORM\ManyToMany(targetEntity="Core\PackageBundle\Entity\PackageOption", cascade={"persist"})
      * @ORM\JoinTable(name="package_package_option")
      */
