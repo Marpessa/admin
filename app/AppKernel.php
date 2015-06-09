@@ -42,6 +42,10 @@ class AppKernel extends Kernel
             new Base\WidgetBundle\BaseWidgetBundle(),
             new Base\CategoryBundle\BaseCategoryBundle(),
             new Base\ArticleBundle\BaseArticleBundle(),
+
+            // Emailing
+            new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
+            new Ibrows\Bundle\NewsletterBundle\IbrowsNewsletterBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

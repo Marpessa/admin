@@ -4,6 +4,9 @@ imports:
     - { resource: services.yml }
     - { resource: user/fos_user.yml }
     - { resource: admin/easy_admin_bundle.yml }
+    # ...
+    - { resource: mail/stfalcon_tinymce.yml }
+    - { resource: mail/ibrows_newsletter.yml }
 
 framework:
     #esi:             ~
@@ -61,6 +64,8 @@ doctrine:
         #   2. Uncomment database_path in parameters.yml.dist
         #   3. Uncomment next line:
         #     path:     "%database_path%"
+        types:
+                nostreamblob: Ibrows\Bundle\NewsletterBundle\DBAL\Types\NoStreamBlobType
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
