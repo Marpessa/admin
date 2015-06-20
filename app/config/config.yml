@@ -4,9 +4,6 @@ imports:
     - { resource: services.yml }
     - { resource: user/fos_user.yml }
     - { resource: admin/easy_admin_bundle.yml }
-    # ...
-    - { resource: mail/stfalcon_tinymce.yml }
-    - { resource: mail/ibrows_newsletter.yml }
 
 framework:
     #esi:             ~

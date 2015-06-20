@@ -45,7 +45,6 @@ class AppKernel extends Kernel
 
             // Emailing
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
-            new Ibrows\Bundle\NewsletterBundle\IbrowsNewsletterBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
