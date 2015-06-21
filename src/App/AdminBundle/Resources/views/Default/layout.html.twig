@@ -1,25 +1,266 @@
 {% extends '@EasyAdmin/default/layout.html.twig' %}
 
-{% block navbar_header %}
-	{{ parent() }}
-{% endblock navbar_header %}
+{% block head_stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/easyadmin/stylesheet/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/easyadmin/stylesheet/font-awesome.min.css') }}">
 
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="{{ asset('/bundles/appadmin/css/ace-part2.min.css') }}" class="ace-main-stylesheet" />
+    <![endif]-->
+
+    <!--[if lte IE 9]>
+      <link rel="stylesheet" href="{{ asset('/bundles/appadmin/css/ace-ie.min.css') }}" />
+    <![endif]-->
+{% endblock head_stylesheets %}
+
+{% block head_javascript %}
+    <!-- inline styles related to this page -->
+
+    <!-- ace settings handler -->
+    <script src="/bundles/appadmin/js/ace-extra.min.js"></script>
+
+    <!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+    <!--[if lte IE 8]>
+    <script src="/bundles/appadmin/js/html5shiv.min.js"></script>
+    <script src="/bundles/appadmin/js/respond.min.js"></script>
+    <![endif]-->
+{% endblock %}
+
+{% block body %}
+    <body id="{% block body_id %}{% endblock %}" class="no-skin {% block body_class %}{% endblock %}">
+
+        {% block navbar_header %}
+            <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+                <div class="navbar-container" id="navbar-container">
+                    <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
+                        <span class="sr-only">Toggle sidebar</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <div class="navbar-header pull-left">
+                        {% block header_logo %}
+                            {% set _site_name_length = easyadmin_config('site_name')|length <= 10 ? 'short' : easyadmin_config('site_name')|length <= 12 ? 'medium' : 'long' %}
+                            <a href="{{ path('admin') }}" class="navbar-brand {{ _site_name_length }}">
+                                {{ easyadmin_config('site_name')|raw }}
+                            </a>
+                        {% endblock header_logo %}
+
+                    </div>
+
+                    <div class="pull-left">
+                        {{ render(controller("AppAdminBundle:Admin:partList", {}), {}) }}
+                    </div>
+                </div>
+
+                <div class="navbar-buttons navbar-header pull-right" role="navigation">
+                    <ul class="nav ace-nav">
+
+                        <li class="light-blue">
+                            <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                                <span class="user-info">
+                                    <small>Welcome,</small>
+                                    Jason
+                                </span>
+
+                                <i class="ace-icon fa fa-caret-down"></i>
+                            </a>
+
+                            <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                                <li>
+                                    <a href="#">
+                                        <i class="ace-icon fa fa-cog"></i>
+                                        Settings
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="profile.html">
+                                        <i class="ace-icon fa fa-user"></i>
+                                        Profile
+                                    </a>
+                                </li>
+
+                                <li class="divider"></li>
+
+                                <li>
+                                    <a href="#">
+                                        <i class="ace-icon fa fa-power-off"></i>
+                                        Logout
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        {% endblock navbar_header %}
+
+
+        <div class="main-container" id="main-container">
+
+            {% block header_menu %}
+                <div id="sidebar" class="sidebar responsive">
+                    <ul class="nav nav-list">
+                        {% block navigation_items %}
+                            {{ render(controller("AppAdminBundle:Admin:menu", {}), {}) }}
+                        {% endblock %}
+                    </ul>
+                </div>
+            {% endblock header_menu %}
+
+            <div class="main-content">
+                <div class="main-content-inner">
+
+                    <div class="breadcrumbs" id="breadcrumbs">
+
+                        <ul class="breadcrumb">
+                            <li>
+                                <i class="ace-icon fa fa-home home-icon"></i>
+                                <a href="#">Home</a>
+                            </li>
+                            <li class="active">Dashboard</li>
+                        </ul><!-- /.breadcrumb -->
+
+                        <div class="nav-search" id="nav-search">
+                            {#}
+                            {% block search_action %}{% endblock search_action %}
+                            {#}
+                        </div><!-- /.nav-search -->
+                    </div>
+
+                    <div class="page-content">
+                        {% block content %}
+
+                            {% block content_header %}
+                                <div class="page-header">
+                                    <h1>
+                                        Dashboard
+                                        <small>
+                                            <i class="ace-icon fa fa-angle-double-right"></i>
+                                            overview &amp; stats
+                                        </small>
+                                    </h1>
+                                </div><!-- /.page-header -->
+                            {% endblock content_header %}
+
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    {% block main %}{% endblock %}
+                                </div>
+                            </div>
+
+
+                        {% endblock content %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="footer-inner">
+                    <div class="footer-content">
+                        {% block content_footer %}
+                            <span class="bigger-120">
+                                <span class="blue bolder">Cloud Web Sport</span>
+                                Application &copy; 2015
+                            </span>
+
+                            &nbsp; &nbsp;
+                            <span class="action-buttons">
+                                <a href="#">
+                                    <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
+                                </a>
+
+                                <a href="#">
+                                    <i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
+                                </a>
+
+                                <a href="#">
+                                    <i class="ace-icon fa fa-rss-square orange bigger-150"></i>
+                                </a>
+                            </span>
+                        {% endblock content_footer %}
+                    </div>
+                </div>
+            </div>
+
+            <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+                <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+            </a>
+
+        </div>
+
+        {% block body_javascript %}
+            <!--[if !IE]> -->
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+            <!-- <![endif]-->
+
+            <!--[if IE]>
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            <![endif]-->
+
+            <!--[if !IE]> -->
+            <script type="text/javascript">
+                window.jQuery || document.write("<script src='{{ asset('/bundles/extranetmain/js/jquery.min.js') }}'>"+"<"+"/script>");
+            </script>
+
+            <!-- <![endif]-->
+
+            <!--[if IE]>
+            <script type="text/javascript">
+             window.jQuery || document.write("<script src='{{ asset('/bundles/extranetmain/js/jquery1x.min.js') }}'>"+"<"+"/script>");
+            </script>
+            <![endif]-->
+
+            <script src='//netdna.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js'></script>
+            {#}
+            <script src="{{ asset('bundles/easyadmin/javascript/jquery.min.js') }}"></script>
+            <script src="{{ asset('bundles/easyadmin/javascript/jquery-flexmenu.min.js') }}"></script>
+            <script src="{{ asset('bundles/easyadmin/javascript/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('bundles/easyadmin/javascript/admin.js') }}"></script>
+            {#}
+
+            <script async="async">
+                var url = '{{ path("change_part", { part_slug: "_slug_" }) }}'; 
+                $('#select_part_list').change( function() {
+                    url = url.replace( "_slug_", $(this).find('option:selected').attr('data-slug') );
+                    window.location.href = url;
+                });
+            </script>
+        {% endblock body_javascript %}
+
+        {% for js_asset in easyadmin_config('design.assets.js') %}
+            <script src="{{ asset(js_asset) }}"></script>
+        {% endfor %}
+    </body>
+{% endblock %}
+
+{#}
+{% block navbar_header %}
+    {{ parent() }}
+{% endblock navbar_header %}
 {% block header_menu %}
-	{{ render(controller("AppAdminBundle:Admin:partList", {}), {}) }}
-	{{ parent() }}
+    {{ render(controller("AppAdminBundle:Admin:partList", {}), {}) }}
+    {{ parent() }}
 {% endblock header_menu %}
 
+
 {% block navigation_items %}
-	{{ render(controller("AppAdminBundle:Admin:menu", {}), {}) }}
+    {{ render(controller("AppAdminBundle:Admin:menu", {}), {}) }}
 {% endblock %}
 
 {% block body_javascript %}
-	{{ parent() }}
+    {{ parent() }}
     <script async="async">
-    	var url = '{{ path("change_part", { part_slug: "_slug_" }) }}'; 
-    	$('#select_part_list').change( function() {
-    		url = url.replace( "_slug_", $(this).find('option:selected').attr('data-slug') );
-    		window.location.href = url;
-    	});
+        var url = '{{ path("change_part", { part_slug: "_slug_" }) }}'; 
+        $('#select_part_list').change( function() {
+            url = url.replace( "_slug_", $(this).find('option:selected').attr('data-slug') );
+            window.location.href = url;
+        });
     </script>
 {% endblock body_javascript %}
+{#}

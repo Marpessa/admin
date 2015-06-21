@@ -1,7 +1,7 @@
-<li>
+<li class="active">
     <a href="{{ path('admin_dashboard') }}">
-        <i class="fa fa-dashboard fa-fw"></i>
-        <span classs="menu-item-parent">Tableau de bord</span>
+        <i class="menu-icon fa fa-dashboard fa-fw"></i>
+        <span classs="menu-text">Tableau de bord</span>
     </a>
 </li>
 
@@ -15,10 +15,13 @@
     
     {% if package_group_title != part_package.package_group_title %}
     <li>
-        <a href="#"><i class="fa {{ part_package.package_group_icon }} fa-fw"></i>
-            <span class="menu-item-parent">{{ part_package.package_group_title }}</span>
+        <a href="#" class="dropdown-toggle">
+            <i class="menu-icon fa {{ part_package.package_group_icon }} fa-fw"></i>
+            <span class="menu-text">{{ part_package.package_group_title }}</span>
+            <b class="arrow fa fa-angle-down"></b>
         </a>
-        <ul>
+
+        <ul class="submenu">
 
     {% endif %}
     

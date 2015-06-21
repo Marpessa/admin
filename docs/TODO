@@ -1,11 +1,13 @@
 TODO :
 
-Implémenter Ace Admin Template
+
+Implémenter Ace Admin Template // Prendre exemple sur http://demo.bundles.kunstmaan.be/en/admin/dashboard/
 Gestion des médias
 Gestion du nom de domaine associé au login // AdminController
 Gérer la sécurité -> Ajouter condition dans les requêtes sur le Part et user
 Ajout d'un paquet pour gérer l'emailing
 
+Améliorer le javascript sur le select de part_list / Utiliser js routing bundle
 
 // http://www.majesteel.fr/fr/documentation/developpeurs/majes-cmsbundle (Regarder comment cela fonctionne au niveau des blocs/pages)
 -------------------

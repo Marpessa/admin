@@ -1,9 +1,16 @@
 easy_admin:
-    site_name: 'Cloud <em style="font-size: 80%; color: yellow">Web Sport.</em>'
+    site_name: 'Cloud Web Sport'
     design:
         assets:
             css:
+                - 'bundles/appadmin/css/bootstrap.min.css'
+                - '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'
+                - '//fonts.googleapis.com/css?family=Open+Sans:400,300'
+                - 'bundles/appadmin/css/ace.min.css'
                 - 'bundles/appadmin/css/custom.css'
+            js:
+                - 'bundles/appadmin/js/ace-elements.min.js'
+                - 'bundles/appadmin/js/ace.min.js'
         brand_color: '#3498db'
         color_scheme: 'dark'
         form_theme: 'horizontal'
